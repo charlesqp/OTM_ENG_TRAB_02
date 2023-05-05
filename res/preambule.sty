@@ -1,0 +1,54 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preambule}[2023/05/05 Pacote de preâmbulo de documento]
+
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{ae}
+\usepackage{xargs}
+\usepackage{indentfirst}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsthm,amssymb,amsfonts,amsmath}
+\usepackage{psfrag}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{import}
+\usepackage{enumitem}
+\usepackage{colortbl,booktabs}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{multicol}
+% Para plotar tabelas
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{placeins}
+\usepackage{
+tikz,
+relsize,
+amsmath,
+booktabs,
+tikz
+}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{float}
+
+\pgfplotstableset{% global config, for example in the preamble
+  every head row/.style={before row=\toprule,after row=\midrule},
+  every last row/.style={after row=\bottomrule},
+}
+\pgfplotsset{compat=1.18}
+
+
+
+
+
+\endinput

@@ -1,14 +1,24 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\documentclass[11pt,a4paper]{article}
 
-\title{OTM_ENG_TRAB_02}
-\author{Charles Pimenta}
-\date{May 2023}
+\usepackage{res/preambule}
+
+\NewDocumentCommand{\nomeAluno}{}{Charles Quirino Pimenta}
+\NewDocumentCommand{\titleLa}{}{Trabalho II \\ Otimização em Engenharia Elétrica}
+\NewDocumentCommand{\titleLb}{}{Otimização com Algoritmos Quase-Newton e Aproximações Quadráticas}
 
 \begin{document}
-
-\maketitle
-
-\section{Introduction}
-
+    \import{res/}{capa} 
+    \section{Introdução}
+        \import{sections/}{section1}
+    \section{Desenvolvimento}
+        \import{sections/}{section2}
+    \section{Experimentos e Resultados}
+        \import{sections/}{section3-1}
+        \import{sections/}{section3-2}
+        \import{sections/}{section3-3}
+        \import{sections/}{section3-4}
+        \import{sections/}{section3-5}
+        \import{sections/}{section3-6}
+    \section{Conclusão}
+        \import{sections/}{section4}
 \end{document}
