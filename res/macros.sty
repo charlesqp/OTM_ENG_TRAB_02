@@ -1,0 +1,24 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{macros}[2023/05/05 Pacote de macros para carregar tabelas]
+
+ \pgfplotstableset
+ {% global config, for example in the preamble
+  every head row/.style={before row=\toprule,after row=\midrule},
+  every last row/.style={after row=\bottomrule},
+}
+\pgfplotsset{compat=1.18}
+
+% ,TEnd_Medio,N_Iter_Medio,N_Evals_F_Medio,Erro_Xsol_P_Medio,Erro_F_P_Medio,Erro_Xsol_P
+
+\newcommand{\writetabledir}[1]
+{  
+    \pgfplotstabletypeset
+    [
+        columns/Metodos/.style={column name={Métodos}},
+        %columns/2/.style={column name={n=2} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        %columns/6/.style={column name={n=6} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        %columns/10/.style={column name={n=10},sci,sci zerofill,sci sep align,precision=2,sci superscript},
+    ]{#1}  
+ }
+
+\endinput
