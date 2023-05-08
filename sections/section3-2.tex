@@ -1,3 +1,25 @@
 % Experimentos e Resultados
+
+\pgfplotstableread{data/sec1s1tbl2.txt}{\tbla}
+\pgfplotstableread{data/sec1s1tbl3.txt}{\tblb}
+
 \subsection{2° Experimento: Avaliação das Funções Não Quadráticas}
     \subsubsection{Função Analisada}
+
+        \begin{minipage}{\linewidth}
+            \centering
+            $x_0=[x_1,x_2]\Longrightarrow$  Aproximações Quadráticas de $f(x)$
+            \label{tab:tblg} 
+            \writetable{\tblg}\par
+            \bigskip
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha=-0.0263$.}
+
+            \centering
+            $x_0=[x_1,x_2]\Longrightarrow$  Avaliação Direta de $f(x)$
+            \label{tab:tblg} 
+            \writetable{\tblg}\par
+            \bigskip
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha=-0.0263$.}
+        \end{minipage}
+         
+\newpage    
