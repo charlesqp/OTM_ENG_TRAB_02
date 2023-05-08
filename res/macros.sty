@@ -14,10 +14,12 @@
 {  
     \pgfplotstabletypeset
     [
-        columns/Metodos/.style={column name={Métodos}},
-        %columns/2/.style={column name={n=2} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
-        %columns/6/.style={column name={n=6} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
-        %columns/10/.style={column name={n=10},sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        columns/Metodos/.style={string type, column name={Método}},
+        columns/TEnd_Medio/.style={column name={Tempo (s)} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        columns/N_Iter_Medio/.style={column name={Iterações}},
+        columns/N_Evals_F_Medio/.style={column name={Avaliações de F(x)}},
+        columns/Erro_Xsol_P_Medio/.style={column name={Erro $X_{sol}$ (\%)},sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        columns/Erro_F_P_Medio/.style={column name={Erro $F(x_{sol})$ (\%)},sci,sci zerofill,sci sep align,precision=2,sci superscript},        
     ]{#1}  
  }
 
