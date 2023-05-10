@@ -1,24 +1,56 @@
 % Experimentos e Resultados
 
-\pgfplotstableread{data/sec1s1tbl10a.txt}{\tblh}
-\pgfplotstableread{data/sec1s1tbl10b.txt}{\tbli}
+\pgfplotstableread{data/sec1s1tbl10a.txt}{\tbli}
+\pgfplotstableread{data/sec1s1tbl10b.txt}{\tblj}
+\pgfplotstableread{data/sec1s1tbl11a.txt}{\tblk}
+\pgfplotstableread{data/sec1s1tbl11b.txt}{\tbll}
+\pgfplotstableread{data/sec1s1tbl12a.txt}{\tblm}
+\pgfplotstableread{data/sec1s1tbl12b.txt}{\tbln}
 
 \subsection{2° Experimento: Avaliação das Funções Não Quadráticas}
-    \subsubsection{Função Analisada}
-        \begin{table}[h!]{\linewidth}
-            \begin{subtable}[h!]{0.45\textwidth} 
-                {Aproximações Quadráticas de $f(x)$}
-                \label{tab:tblh} 
-                \writetable{\tblh}               
-            \end{subtable}
+    \subsubsection{$\alpha = -0.0263$}
+    
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            Aproximações Quadráticas de $f(x)$
+            \label{tab:tbli} 
+            \writetable{\tbli}\par
             \bigskip
-         
-            \begin{subtable}[h!]{0.45\textwidth}
-                {Avaliação Direta de $f(x)$}
-                \label{tab:tbli} 
-                \writetable{\tbli}        
-            \end{subtable}
-            \caption{Resultados relacionados ao esforço computacional e precisão considerando}
-        \end{table}
+            \centering
+            Avaliação Direta de $f(x)$
+            \label{tab:tblj} 
+            \writetable{\tblj}\par
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = -0.0263$}
+        \end{minipage}
+
+    \subsubsection{$\alpha = 0.0263$}
+    
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            {Aproximações Quadráticas de $f(x)$}
+            \label{tab:tblk} 
+            \writetable{\tblk}\par
+            \bigskip
+            \centering
+            {Avaliação Direta de $f(x)$}
+            \label{tab:tbll} 
+            \writetable{\tbll}\par
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 0.0263$}
+        \end{minipage}
+
+    \subsubsection{$\alpha = 1.0$}
+    
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            {Aproximações Quadráticas de $f(x)$}
+            \label{tab:tblm} 
+            \writetable{\tblm}\par
+            \bigskip
+            \centering
+            {Avaliação Direta de $f(x)$}
+            \label{tab:tbln} 
+            \writetable{\tbln}\par     
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 1.0$}
+        \end{minipage}
          
 \newpage    
