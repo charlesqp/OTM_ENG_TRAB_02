@@ -1,5 +1,25 @@
 % Experimentos e Resultados
+
+\pgfplotstableread{data/sec1s1tbl17_tEnd.txt}{\tblAa}
+\pgfplotstableread{data/sec1s1tbl17_N_Iter.txt}{\tblAb}
+\pgfplotstableread{data/sec1s1tbl17_N_Evals.txt}{\tblAc}
+\pgfplotstableread{data/sec1s1tbl17_Erro_Xsol_P.txt}{\tblAd}
+\pgfplotstableread{data/sec1s1tbl17_Erro_F_P.txt}{\tblAe}
+
 \subsection{6° Experimento: Avaliação Estatística dos Métodos Quase-Newton com Variação do Parâmetro $\alpha$}
     \subsubsection{Função Analisada}
+
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            $x_0=[9,9]\Longrightarrow$  Avaliação Direta de $f(x)$            
+            \label{tab:tblAa} 
+            \writetablestt{\tblAa}\par
+            \bigskip
+            \centering
+            $x_0=[9,9]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+            \label{tab:tblAb} 
+            \writetablestt{\tblAb}
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_0$}
+        \end{minipage}
 
 \newpage
