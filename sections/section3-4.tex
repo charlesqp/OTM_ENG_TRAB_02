@@ -1,6 +1,26 @@
 % Experimentos e Resultados
+
+\pgfplotstableread{data/sec1s1tbl14a.txt}{\tblt}
+\pgfplotstableread{data/sec1s1tbl14b.txt}{\tblu}
+\pgfplotstableread{data/sec1s1tbl15a.txt}{\tblv}
+\pgfplotstableread{data/sec1s1tbl15b.txt}{\tblx}
+
 \subsection{4° Experimento: Técnica da Seção Áurea - Avaliação Direta da Função e Aproximações Quadráticas da Função a Cada Iteração}
     \subsubsection{Primeira Função Analisada}
+
+    \begin{minipage}[h!]{\linewidth}
+            \centering
+            $x_0=[-6,-5]\Longrightarrow$  Avaliação Direta de $f(x)$            
+            \label{tab:tblt} 
+            \writetable{\tblt}
+            \bigskip
+            \centering
+            $x_0=[-6,-5]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+            \label{tab:tblu} 
+            \writetable{\tblu}
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_0$}
+        \end{minipage}
+        
     \subsubsection{Segunda Função Analisada}
 
 \newpage
