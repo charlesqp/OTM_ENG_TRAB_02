@@ -1,9 +1,9 @@
-DFP	BFGS	Huang	Biggs
-0	0	0	0
-0	0	0	0
-0	0	0	0
-0	0	0	0
-0	0	0	0
-0	0	0	0
-0	0	0	0
-50	50	50	50
+Metodos	DFP	BFGS	Huang	Biggs
+Média	0	0	0	0
+Mediana	0	0	0	0
+Desvio Padrão	0	0	0	0
+Erro Padrão	0	0	0	0
+Variância	0	0	0	0
+Mínimo	0	0	0	0
+Máximo	0	0	0	0
+Nº de Dados	50	50	50	50
