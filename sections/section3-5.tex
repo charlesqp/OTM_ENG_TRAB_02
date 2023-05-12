@@ -1,5 +1,22 @@
 % Experimentos e Resultados
+
+\pgfplotstableread{data/sec1s1tbl16a.txt}{\tblz}
+\pgfplotstableread{data/sec1s1tbl16b.txt}{\tblw}
+
 \subsection{5° Experimento: Avaliação dos Métodos Quase-Newton em Problemas com Hessiana Singular}
     \subsubsection{Função Analisada}
 
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            $x_0=[9,9]\Longrightarrow$  Avaliação Direta de $f(x)$            
+            \label{tab:tblz} 
+            \writetable{\tblz}\par
+            \bigskip
+            \centering
+            $x_0=[9,9]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+            \label{tab:tblw} 
+            \writetable{\tblw}
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_0$}
+        \end{minipage}
+        
 \newpage
