@@ -29,4 +29,16 @@
     ]{#1}  
  }
 
+ \newcommand{\writetablestt}[1]
+{  
+    \pgfplotstabletypeset
+    [
+        columns/Métodos/.style={string type, column name={Métodos}},
+        columns/DFP/.style={column name={DFP} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        columns/BFGS/.style={column name={BFGS} ,sci,sci zerofill,sci sep align,precision=2,sci superscript}, 
+        columns/Huang/.style={column name={Huang} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        columns/Biggs/.style={column name={Biggs} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+    ]{#1}  
+ }
+
 \endinput
