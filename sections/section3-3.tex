@@ -1,12 +1,40 @@
 % Experimentos e Resultados
 
-\pgfplotstableread{data/sec1s1tbl13a.txt}{\tbli}
-\pgfplotstableread{data/sec1s1tbl13b.txt}{\tblj}
-\pgfplotstableread{data/sec1s1tbl13c.txt}{\tblk}
-\pgfplotstableread{data/sec1s1tbl13d.txt}{\tbll}
-\pgfplotstableread{data/sec1s1tbl13e.txt}{\tblm}
+\pgfplotstableread{data/sec1s1tbl13a.txt}{\tblo}
+\pgfplotstableread{data/sec1s1tbl13b.txt}{\tblp}
+\pgfplotstableread{data/sec1s1tbl13c.txt}{\tblq}
+\pgfplotstableread{data/sec1s1tbl13d.txt}{\tblr}
+\pgfplotstableread{data/sec1s1tbl13e.txt}{\tbls}
 
 \subsection{3° Experimento: Avaliação do Custo Computacional em Função de Variação da Dimensão}
     \subsubsection{Função Analisada}
+
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            Dimensão igual a 5
+            \label{tab:tblo} 
+            \writetable{\tblo}\par
+            \bigskip
+            \centering
+            Dimensão igual a 10
+            \label{tab:tblp} 
+            \writetable{\tblp}\par
+            \bigskip
+            \centering
+            Dimensão igual a 15
+            \label{tab:tblq} 
+            \writetable{\tblq}\par
+            \bigskip
+            \centering
+            Dimensão igual a 20
+            \label{tab:tblr} 
+            \writetable{\tblr}\par
+            \bigskip
+            \centering
+            Dimensão igual a 25
+            \label{tab:tbls} 
+            \writetable{\tbls}\par
+            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando a dimensão $n$}
+        \end{minipage}
     
 \newpage
