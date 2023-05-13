@@ -33,7 +33,7 @@
 {  
     \pgfplotstabletypeset
     [
-        columns/Métodos/.style={string type, column name={Métodos}},
+        columns/Metodos/.style={string type, column name={Métodos},string replace={Media}{Média},string replace={Desvio_Padrao}{Desvio Padrão},string replace={Erro_Padrao}{Erro Padrão},string replace={Variancia}{Variância},string replace={Minimo}{Mínimo},string replace={Maximo}{Máximo},string replace={N_Dados}{Nº de Dados}},
         columns/DFP/.style={column name={DFP} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
         columns/BFGS/.style={column name={BFGS} ,sci,sci zerofill,sci sep align,precision=2,sci superscript}, 
         columns/Huang/.style={column name={Huang} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},

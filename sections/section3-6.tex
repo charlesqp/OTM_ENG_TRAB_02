@@ -6,20 +6,137 @@
 \pgfplotstableread{data/sec1s1tbl17_Erro_Xsol_P.txt}{\tblAd}
 \pgfplotstableread{data/sec1s1tbl17_Erro_F_P.txt}{\tblAe}
 
+\pgfplotstableread{data/sec1s1tbl18_tEnd.txt}{\tblBa}
+\pgfplotstableread{data/sec1s1tbl18_N_Iter.txt}{\tblBb}
+\pgfplotstableread{data/sec1s1tbl18_N_Evals.txt}{\tblBc}
+\pgfplotstableread{data/sec1s1tbl18_Erro_Xsol_P.txt}{\tblBd}
+\pgfplotstableread{data/sec1s1tbl18_Erro_F_P.txt}{\tblBe}
+
+\pgfplotstableread{data/sec1s1tbl19_tEnd.txt}{\tblCa}
+\pgfplotstableread{data/sec1s1tbl19_N_Iter.txt}{\tblCb}
+\pgfplotstableread{data/sec1s1tbl19_N_Evals.txt}{\tblCc}
+\pgfplotstableread{data/sec1s1tbl19_Erro_Xsol_P.txt}{\tblCd}
+\pgfplotstableread{data/sec1s1tbl19_Erro_F_P.txt}{\tblCe}
+
+\pgfplotstableread{data/sec1s1tbl20_tEnd.txt}{\tblDa}
+\pgfplotstableread{data/sec1s1tbl20_N_Iter.txt}{\tblDb}
+\pgfplotstableread{data/sec1s1tbl20_N_Evals.txt}{\tblDc}
+\pgfplotstableread{data/sec1s1tbl20_Erro_Xsol_P.txt}{\tblDd}
+\pgfplotstableread{data/sec1s1tbl20_Erro_F_P.txt}{\tblDe}
+
 \subsection{6° Experimento: Avaliação Estatística dos Métodos Quase-Newton com Variação do Parâmetro $\alpha$}
     \subsubsection{Função Analisada}
 
-        \begin{minipage}[h!]{\linewidth}
+        \begin{minipage}[h!]{\linewidth}            
             \centering
-            $x_0=[9,9]\Longrightarrow$  Avaliação Direta de $f(x)$            
+            \hrule
+            \vspace{2mm}
+            Técnica da Seção Áurea Feita por meio da avaliação direta de $F(x)$ \\ $\alpha=-0.0236$
+            \vspace{2mm}
+            \noindent
+            \hrule 
+            \vspace{2mm}
+            Tempo de Processamento Médio\\
             \label{tab:tblAa} 
             \writetablestt{\tblAa}\par
             \bigskip
             \centering
-            $x_0=[9,9]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+            Número de Iterações\\
             \label{tab:tblAb} 
-            \writetablestt{\tblAb}
-            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_0$}
+            \writetablestt{\tblAb}\par
+            \bigskip
+            \centering
+            Número de Avaliações de $f(x)$\\
+            \label{tab:tblAc} 
+            \writetablestt{\tblAc}\par
+            \vspace{2mm}
+            \hrule
+            \vspace{2mm}
+            \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=-0.0263$}
+        \end{minipage}
+
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            \hrule
+            \vspace{2mm}
+            Técnica da Seção Áurea Feita por meio de Aproximações Quadráticas para $F(x)$ \\ $\alpha=0$
+            \vspace{2mm}
+            \noindent
+            \hrule 
+            \vspace{2mm}
+            Tempo de Processamento Médio\\
+            \label{tab:tblBa} 
+            \writetablestt{\tblBa}\par
+            \bigskip
+            \centering
+            Número de Iterações\\
+            \label{tab:tblBb} 
+            \writetablestt{\tblBb}\par
+            \bigskip
+            \centering
+            Número de Avaliações de $f(x)$\\
+            \label{tab:tblBc} 
+            \writetablestt{\tblBc}\par
+            \vspace{2mm}
+            \hrule
+            \vspace{2mm}
+            \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0$}
+        \end{minipage}
+
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            \hrule
+            \vspace{2mm}
+            Técnica da Seção Áurea Feita por meio da avaliação direta de $F(x)$ \\ $\alpha=0$
+            \vspace{2mm}
+            \noindent
+            \hrule 
+            \vspace{2mm}
+            Tempo de Processamento Médio\\
+            \label{tab:tblCa} 
+            \writetablestt{\tblCa}\par
+            \bigskip
+            \centering
+            Número de Iterações\\
+            \label{tab:tblCb} 
+            \writetablestt{\tblCb}\par
+            \bigskip
+            \centering
+            Número de Avaliações de $f(x)$\\
+            \label{tab:tblCc} 
+            \writetablestt{\tblCc}\par
+            \vspace{2mm}
+            \hrule
+            \vspace{2mm}
+            \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0$}
+        \end{minipage}
+
+        \begin{minipage}[h!]{\linewidth}
+            \centering
+            \hrule
+            \vspace{2mm}
+            Técnica da Seção Áurea Feita por meio de Aproximações Quadráticas para $F(x)$ \\ $\alpha=0.0236$
+            \vspace{2mm}
+            \noindent
+            \hrule 
+            \vspace{2mm}
+            Tempo de Processamento Médio\\
+            \label{tab:tblDa} 
+            \writetablestt{\tblDa}\par
+            \bigskip
+            \centering
+            Número de Iterações\\
+            \label{tab:tblDb} 
+            \writetablestt{\tblDb}\par
+            \bigskip
+            \centering
+            Número de Avaliações de $f(x)$\\
+            \label{tab:tblDc} 
+            \writetablestt{\tblDc}\par
+            \vspace{2mm}
+            \hrule
+            \vspace{2mm}
+            \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0.0263$}
         \end{minipage}
 
 \newpage
