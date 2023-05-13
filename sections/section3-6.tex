@@ -5,6 +5,7 @@
 \pgfplotstableread{data/sec1s1tbl17_N_Evals.txt}{\tblAc}
 \pgfplotstableread{data/sec1s1tbl17_Erro_Xsol_P.txt}{\tblAd}
 \pgfplotstableread{data/sec1s1tbl17_Erro_F_P.txt}{\tblAe}
+\pgfplotstableread{data/sec1s1tbl17_raw.txt}{\tblAr}
 
 \pgfplotstableread{data/sec1s1tbl18_tEnd.txt}{\tblBa}
 \pgfplotstableread{data/sec1s1tbl18_N_Iter.txt}{\tblBb}
@@ -54,6 +55,38 @@
             \vspace{2mm}
             \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=-0.0263$}
         \end{minipage}
+
+        \pgfplotsset{width=7cm,compat=1.18}\usepgfplotslibrary{statistics}
+        \pgfplotsset{
+            only if/.style args={entry of #1 is #2}{
+                /pgfplots/boxplot/data filter/.code={
+                    \edef\tempa{\thisrow{#1}}
+                    \edef\tempb{#2}
+                    \ifx\tempa\tempb
+                    \else
+                        \def\pgfmathresult{}
+                    \fi
+                }
+            }
+        }
+
+        \begin{tikzpicture}
+            \begin{axis}[
+                boxplot/draw direction=y,
+                table/y=v,
+                x axis line style={opacity=0},
+                axis x line*=bottom,
+                axis y line=left,
+                enlarge y limits,
+                ymajorgrids,
+                xtick={1,2,3,4},
+                xticklabels={DFP, BFGS, Huang, Biggs},
+            ]
+            \addplot table[y index=1, row sep=newline, col sep=tab]{\tblAr};
+ 
+        \end{axis}
+        \end{tikzpicture}
+        
 
         \begin{minipage}[h!]{\linewidth}
             \centering
