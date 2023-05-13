@@ -57,10 +57,23 @@
         \end{minipage}
 
         \pgfplotsset{width=7cm,compat=1.18}\usepgfplotslibrary{statistics}
+        \pgfplotsset{
+            only if/.style args={entry of #1 is #2}{
+                /pgfplots/boxplot/data filter/.code={
+                    \edef\tempa{\thisrow{#1}}
+                    \edef\tempb{#2}
+                    \ifx\tempa\tempb
+                    \else
+                        \def\pgfmathresult{}
+                    \fi
+                }
+            }
+        }
 
         \begin{tikzpicture}
             \begin{axis}[
                 boxplot/draw direction=y,
+                table/y=v,
                 x axis line style={opacity=0},
                 axis x line*=bottom,
                 axis y line=left,
