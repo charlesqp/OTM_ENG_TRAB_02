@@ -5,14 +5,20 @@
 \pgfplotstableread{data/sec1s1tbl17_N_Evals.txt}{\tblAc}
 \pgfplotstableread{data/sec1s1tbl17_Erro_Xsol_P.txt}{\tblAd}
 \pgfplotstableread{data/sec1s1tbl17_Erro_F_P.txt}{\tblAe}
-\pgfplotstableread{data/sec1s1tbl17_raw.txt}{\tblAr}
-
+\pgfplotstableread{data/sec1s1tbl17_DFP_raw.txt}{\tblADFP}
+\pgfplotstableread{data/sec1s1tbl17_BFGS_raw.txt}{\tblABFGS}
+\pgfplotstableread{data/sec1s1tbl17_Huang_raw.txt}{\tblAHuang}
+\pgfplotstableread{data/sec1s1tbl17_Biggs_raw.txt}{\tblABiggs}
 
 \pgfplotstableread{data/sec1s1tbl18_tEnd.txt}{\tblBa}
 \pgfplotstableread{data/sec1s1tbl18_N_Iter.txt}{\tblBb}
 \pgfplotstableread{data/sec1s1tbl18_N_Evals.txt}{\tblBc}
 \pgfplotstableread{data/sec1s1tbl18_Erro_Xsol_P.txt}{\tblBd}
 \pgfplotstableread{data/sec1s1tbl18_Erro_F_P.txt}{\tblBe}
+\pgfplotstableread{data/sec1s1tbl18_DFP_raw.txt}{\tblBDFP}
+\pgfplotstableread{data/sec1s1tbl18_BFGS_raw.txt}{\tblBBFGS}
+\pgfplotstableread{data/sec1s1tbl18_Huang_raw.txt}{\tblBHuang}
+\pgfplotstableread{data/sec1s1tbl18_Biggs_raw.txt}{\tblBBiggs}
 
 \pgfplotstableread{data/sec1s1tbl19_tEnd.txt}{\tblCa}
 \pgfplotstableread{data/sec1s1tbl19_N_Iter.txt}{\tblCb}
@@ -57,43 +63,95 @@
             \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=-0.0263$}
         \end{minipage}
 
-        \pgfplotsset{width=7cm,compat=1.18}\usepgfplotslibrary{statistics}
+             
 
  
+            
+        \begin{figure}[h!]            \pgfplotsset{width=8cm,height=4.94cm,compat=1.18}\usepgfplotslibrary{statistics} 
+            \centering            
+            \subfloat[\centering label 1]{{
+                \begin{tikzpicture}
+                    \begin{semilogyaxis}[
+                        boxplot,
+                        table/y=TEnd,
+                        boxplot/draw direction=y,
+                        title={Tempo total de execução},
+                        xlabel={Métodos},
+                        grid=major,
+                        xtick={1,2,3,4},
+                        xticklabels={DFP,BFGS,Huang,Biggs},]
+                        \addplot table{\tblADFP};
+                        \addplot table{\tblABFGS};
+                        \addplot table{\tblAHuang};
+                        \addplot table{\tblABiggs};
+                    \end{semilogyaxis}    
+                \end{tikzpicture} 
+                }}%
+            \qquad
+            \subfloat[\centering label 2]{{
+                \begin{tikzpicture}
+                    \begin{semilogyaxis}[
+                        boxplot,
+                        table/y=N_Iter,
+                        boxplot/draw direction=y,
+                        title={Numero de Iterações},
+                        xlabel={Métodos},
+                        grid=major,
+                        xtick={1,2,3,4},
+                        xticklabels={DFP,BFGS,Huang,Biggs},]
+                        \addplot table{\tblADFP};
+                        \addplot table{\tblABFGS};
+                        \addplot table{\tblAHuang};
+                        \addplot table{\tblABiggs};
+                    \end{semilogyaxis}    
+                \end{tikzpicture} 
+                }}%
+            \qquad
+            \subfloat[\centering label 3]{{
+                \begin{tikzpicture}
+                    \begin{semilogyaxis}[
+                        boxplot,
+                        table/y=N_Evals_F,
+                        boxplot/draw direction=y,
+                        title={Numero de avaliações da função Objetivo},
+                        xlabel={Métodos},
+                        grid=major,
+                        xtick={1,2,3,4},
+                        xticklabels={DFP,BFGS,Huang,Biggs},]
+                        \addplot table{\tblADFP};
+                        \addplot table{\tblABFGS};
+                        \addplot table{\tblAHuang};
+                        \addplot table{\tblABiggs};
+                    \end{semilogyaxis}    
+                \end{tikzpicture} 
+            }}%
+            \caption{2 Figures side by side}%
+            \label{fig:example}%
+        \end{figure}
+
+         \begin{figure}[h!]            
+            \pgfplotsset{width=16cm,height=4.94cm}
+            \centering            
+            \subfloat[\centering label 1]{{
+                \begin{tikzpicture}[domain=1:50]
+                    \begin{axis}[]
+                        \addplot[scatter ,only marks]table[[x=1:50,y=Erro_Xsol_P]{\tblADFP};
+                    \end{axis}                     
+                \end{tikzpicture} 
+                }}%            
+              
+            \caption{2 Figures side by side}%
+            \label{fig:example}%
+        \end{figure}
+            
+            
+           
+
+            
+            
+             
   
-        \begin{tikzpicture}
-            \begin{semilogyaxis}[
-                boxplot,
-                table/y=N_Evals_F,
-                table/x=Metodo,
-                boxplot/draw direction=y,  
-            ]
-                \addplot [x filter/.code={\pgfplotstablegetelem{\coordindex}{Metodo}\of{\tblAr}
-                    \pgfmathtruncatemacro{\tempva}{abs(\pgfplotsretval - 0) <= 0.001 ? 1: 0}
-                    \ifnum\tempva>0%true
-                    \else%false
-                    \def\pgfmathresult{}
-                    \fi}] table{\tblAr};
-                \addplot [x filter/.code={\pgfplotstablegetelem{\coordindex}{Metodo}\of{\tblAr}
-                    \pgfmathtruncatemacro{\tempva}{abs(\pgfplotsretval - 1) <= 0.001 ? 1: 0}
-                    \ifnum\tempva>0%true
-                    \else%false
-                    \def\pgfmathresult{}
-                    \fi}] table{\tblAr};    
-                \addplot [x filter/.code={\pgfplotstablegetelem{\coordindex}{Metodo}\of{\tblAr}
-                    \pgfmathtruncatemacro{\tempva}{abs(\pgfplotsretval - 2) <= 0.001 ? 1: 0}
-                    \ifnum\tempva>0%true
-                    \else%false
-                    \def\pgfmathresult{}
-                    \fi}] table{\tblAr};  
-                \addplot [x filter/.code={\pgfplotstablegetelem{\coordindex}{Metodo}\of{\tblAr}
-                    \pgfmathtruncatemacro{\tempva}{abs(\pgfplotsretval - 3) <= 0.001 ? 1: 0}
-                    \ifnum\tempva>0%true
-                    \else%false
-                    \def\pgfmathresult{}
-                    \fi}] table{\tblAr}; 
-            \end{semilogyaxis}    
-        \end{tikzpicture}
+
 
 
 
