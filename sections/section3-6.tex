@@ -134,8 +134,11 @@
             \centering            
             \subfloat[\centering label 1]{{
                 \begin{tikzpicture}
-                    \begin{axis}
-                        \addplot[scatter,only marks,scatter src=a,draw=black]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblADFP};
+                    \begin{axis}[%
+                    scatter/classes={%
+                    DFP={mark=o,draw=black},BFGS={mark=o,draw=blue}}]
+                        \addplot[scatter,only marks,scatter src=explicit]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblADFP};
+                        \addplot[scatter,only marks,scatter src=explicit]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblABFGS};
                     \end{axis}                     
                 \end{tikzpicture} 
                 }}%              
