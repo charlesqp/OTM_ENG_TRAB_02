@@ -133,27 +133,17 @@
             \pgfplotsset{width=16cm,height=4.94cm}
             \centering            
             \subfloat[\centering label 1]{{
-                \begin{tikzpicture}[domain=1:50]
-                    \begin{axis}[]
-                        \addplot[scatter ,only marks]table[[x=1:50,y=Erro_Xsol_P]{\tblADFP};
+                \begin{tikzpicture}
+                    \begin{axis}
+                        \addplot[scatter,only marks,scatter src=a,draw=black]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblADFP};
                     \end{axis}                     
                 \end{tikzpicture} 
-                }}%            
-              
+                }}%              
             \caption{2 Figures side by side}%
             \label{fig:example}%
         \end{figure}
             
             
-           
-
-            
-            
-             
-  
-
-
-
 
         \begin{minipage}[h!]{\linewidth}
             \centering
