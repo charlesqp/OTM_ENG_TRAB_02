@@ -1,17 +1,31 @@
 % Experimentos e Resultados
 
-\pgfplotstableread{data/sec1s1tbl2.txt}{\tbla}
-\pgfplotstableread{data/sec1s1tbl3.txt}{\tblb}
-\pgfplotstableread{data/sec1s1tbl4.txt}{\tblc}
-\pgfplotstableread{data/sec1s1tbl5.txt}{\tbld}
-\pgfplotstableread{data/sec1s1tbl6.txt}{\tble}
-\pgfplotstableread{data/sec1s1tbl7.txt}{\tblf}
-\pgfplotstableread{data/sec1s1tbl8.txt}{\tblg}
-\pgfplotstableread{data/sec1s1tbl9.txt}{\tblh}
+\pgfplotstableread{data/sect3s1/sec3s1tbl2.txt}{\tbla}
+\pgfplotstableread{data/sect3s1/sec3s1tbl3.txt}{\tblb}
+\pgfplotstableread{data/sect3s1/sec3s1tbl4.txt}{\tblc}
+\pgfplotstableread{data/sect3s1/sec3s1tbl5.txt}{\tbld}
+\pgfplotstableread{data/sect3s1/sec3s1tbl6.txt}{\tble}
+\pgfplotstableread{data/sect3s1/sec3s1tbl7.txt}{\tblf}
+\pgfplotstableread{data/sect3s1/sec3s1tbl8.txt}{\tblg}
+\pgfplotstableread{data/sect3s1/sec3s1tbl9.txt}{\tblh}
 
 \subsection{1° Experimento: Avaliação das Funções Quadráticas}
     \subsubsection{Primeira Função Analisada}
 
+    A primeira função analisada consiste na função \ref{eq:prifuntst} da seção \ref{sec:prifun}.
+    Para o experimento em questão a função objetivo é avaliada em duas dimensões. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a $400$ e os limites inferior e superior das variáveis $[\-10, 10 ]\ $.
+
+    Na execução dos algoritmos, os métodos Quase-Newton, deverão considerados quatro pontos iniciais. Em dois pontos iniciais empregando a técnica da seção áurea diretamente na avaliação da função e, nos outros dois pontos, usando  a técnica da seção áurea feita por aproximações quadráticas para a função, conforme exibido abaixo:
+    \begin{itemize}
+        \item $x_{0_1}=[\ 9 , 9 ]\ \rightarrow$ 1º Quadrante $\Rightarrow$ Aproximações Quadráticas  
+        \item $x_{0_2}=[\ -3 , 2 ]\ \rightarrow$ 2º Quadrante $\Rightarrow$ Avaliação Direta da Função
+        \item $x_{0_3}=[\ -8 , -6 ]\ \rightarrow$ 3º Quadrante $\Rightarrow$ Aproximações Quadráticas  
+        \item $x_{0_4}=[\ 5 , -7 ]\ \rightarrow$ 4º Quadrante $\Rightarrow$ Avaliação Direta da Função
+    \end{itemize} 
+
+    Os resultados obtidos são apresentados nas tabelas abaixo.
+    \vspace{2mm}
+    
         \begin{minipage}{\linewidth}
             \centering
             $x_0=[9,9]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
@@ -50,6 +64,16 @@
         
     \subsubsection{Segunda Função Analisada}
 
+    A Segunda função analisada consiste na função apresentada na seção \ref{sec:secfun}.
+
+    A função objetivo apresentada na equação (\ref{eq:secfuntst}) possui duas variáveis de decisão. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a 400 e os limites das variáveis de decisão $[\ -10 , 10 ]\ $. No intuito de obter uma função quadrática, o parâmetro $a$ é igual a zero, resultando em:
+
+    \begin{equation*} 
+        f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1
+    \end{equation*}
+    
+    Na execução dos algoritmos que implementam os métodos Quase-Newton deverão ser considerados dois pontos iniciais definidos aleatoriamente pelo aluno. Em um desses dois pontos iniciais será usada a técnica da seção áurea da avaliação direta da função e, no outro, por meio das aproximações quadráticas para a função a cada iteração. 
+
         \begin{minipage}{\linewidth}
             \centering
             $x_0=[x_1,x_2]\Longrightarrow$  Avaliação Direta de $f(x)$
@@ -70,6 +94,16 @@
     
     \subsubsection{Terceira Função Analisada}
 
+    A terceira função analisada consiste na função da seção \ref{sec:terfun}.
+    
+    A função objetivo apresentada acima possui duas variáveis de decisão. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a 400 e os limites das variáveis de decisão definem o seguinte intervalo $[\ 0 , 3 ]\ $. Nesse intervalo, embora a função $f(x)$ possua dois termos cúbicos, a mesma se comporta como uma função quadrática. Sabendo que $a=\sqrt{2}$, tem-se que:
+
+    \begin{equation*} 
+        f(x) = -8*x_1*x_2+2*x_2*x_1^3+2*x_1*x_2^3
+    \end{equation*}
+
+    Na execução dos algoritmos que implementam os métodos Quase-Newton, na análise dessa função, serão considerados dois pontos iniciais definidos aleatoriamente pelo aluno. Em um desses dois pontos iniciais será utilizada a técnica da seção áurea feita através da avaliação direta da função e, no outro, por meio das aproximações quadráticas para a função a cada iteração.
+
         \begin{minipage}{\linewidth}
             \centering
             $x_0=[x_1,x_2]\Longrightarrow$  Avaliação Direta de $f(x)$
@@ -87,5 +121,4 @@
             \bigskip
             \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{2}}$}
         \end{minipage}
-
 \newpage

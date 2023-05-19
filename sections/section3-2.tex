@@ -1,56 +1,99 @@
 % Experimentos e Resultados
 
-\pgfplotstableread{data/sec1s1tbl10a.txt}{\tbli}
-\pgfplotstableread{data/sec1s1tbl10b.txt}{\tblj}
-\pgfplotstableread{data/sec1s1tbl11a.txt}{\tblk}
-\pgfplotstableread{data/sec1s1tbl11b.txt}{\tbll}
-\pgfplotstableread{data/sec1s1tbl12a.txt}{\tblm}
-\pgfplotstableread{data/sec1s1tbl12b.txt}{\tbln}
+\pgfplotstableread{data/sect3s2/sec3s2tbl10a.txt}{\tbli}
+\pgfplotstableread{data/sect3s2/sec3s2tbl10b.txt}{\tblj}
+\pgfplotstableread{data/sect3s2/sec3s2tbl11a.txt}{\tblk}
+\pgfplotstableread{data/sect3s2/sec3s2tbl11b.txt}{\tbll}
+\pgfplotstableread{data/sect3s2/sec3s2tbl12a.txt}{\tblm}
+\pgfplotstableread{data/sect3s2/sec3s2tbl12b.txt}{\tbln}
 
 \subsection{2° Experimento: Avaliação das Funções Não Quadráticas}
-    \subsubsection{$\alpha = -0.0263$}
-    
-        \begin{minipage}[h!]{\linewidth}
-            \centering
-            Aproximações Quadráticas de $f(x)$
-            \label{tab:tbli} 
-            \writetable{\tbli}\par
-            \bigskip
-            \centering
-            Avaliação Direta de $f(x)$
-            \label{tab:tblj} 
-            \writetable{\tblj}
-            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = -0.0263$}
-        \end{minipage}
+    \subsubsection{Função Analisada}
 
-    \subsubsection{$\alpha = 0.0263$}
-    
-        \begin{minipage}[h!]{\linewidth}
-            \centering
-            {Aproximações Quadráticas de $f(x)$}
-            \label{tab:tblk} 
-            \writetable{\tblk}\par
-            \bigskip
-            \centering
-            {Avaliação Direta de $f(x)$}
-            \label{tab:tbll} 
-            \writetable{\tbll}
-            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 0.0263$}
-        \end{minipage}
+    A função analisada consiste na função da seção \ref{sec:secfun}.
 
-    \subsubsection{$\alpha = 1.0$}
+    A função objetivo apresentada possui duas variáveis de decisão. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a 400 e os limites das variáveis de decisão definem o seguinte intervalo $[\ -10 , 10 ]\ $. No intuito de obter uma função não quadrática perfeita, foram considerados três valores do parâmetro $a$, os quais são apresentados abaixo seguido da respectiva função objetivo:
+
+    \begin{equation*}   
+        \begin{aligned}
+            \alpha &=-0.0263 \rightarrow &f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 -0.0263*(x_1^3+x_2^3)\\
+            \alpha &=+0.0263 \rightarrow &f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 + 0.0263*(x_1^3+x_2^3)\\
+            \alpha &=1 \rightarrow &f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 + (x_1^3+x_2^3)\\   
+        \end{aligned}
+    \end{equation*}
+ 
+    Para cada valor do parâmetro $a$ deverão ser considerados dois pontos iniciais, dentre os quais um será executado considerando a técnica da seção áurea feita através da avaliação direta da função e o outro considerando as aproximações quadráticas para a função a cada iteração.
+
+    Vale ressaltar que o parâmetro a pondera o termo cúbico da função objetivo $f(x)$ do problema de otimização estudado, quanto maior o valor absoluto desse parâmetro, maior é a influência do termo não quadrático na função. Para esta função os valores assumidos para parâmetro  a que não comprometem a convexidade da função   no intervalo $[\ -10 , 10 ]\ $ estão no intervalo: \\ {\centering $-0.0263 \leq a \leq 0.0263$} \\
+    \vspace{2mm}
+
+    {\centering
+    \hrule
+    \vspace{2mm}
+    $\alpha = -0.0263$
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}}
+      
+    \begin{minipage}[h!]{\linewidth}
+        \centering
+        Aproximações Quadráticas de $f(x)$
+        \label{tab:tbli} 
+        \writetable{\tbli}\par
+        \bigskip
+        \centering
+        Avaliação Direta de $f(x)$
+        \label{tab:tblj} 
+        \writetable{\tblj}
+        \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = -0.0263$}
+    \end{minipage}
+    \vspace{3mm}
+
+    {\centering
+    \hrule
+    \vspace{2mm}
+    $\alpha = 0.0263$
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}}
     
-        \begin{minipage}[h!]{\linewidth}
-            \centering
-            {Aproximações Quadráticas de $f(x)$}
-            \label{tab:tblm} 
-            \writetable{\tblm}\par
-            \bigskip
-            \centering
-            {Avaliação Direta de $f(x)$}
-            \label{tab:tbln} 
-            \writetable{\tbln}     
-            \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 1.0$}
-        \end{minipage}
+    \begin{minipage}[h!]{\linewidth}
+        \centering
+        {Aproximações Quadráticas de $f(x)$}
+        \label{tab:tblk} 
+        \writetable{\tblk}\par
+        \bigskip
+        \centering
+        {Avaliação Direta de $f(x)$}
+        \label{tab:tbll} 
+        \writetable{\tbll}
+        \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 0.0263$}
+    \end{minipage}
+    \vspace{3mm}
+
+    {\centering
+    \hrule
+    \vspace{2mm}
+    $\alpha = 1.0$
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}}
+    
+    \begin{minipage}[h!]{\linewidth}
+        \centering
+        {Aproximações Quadráticas de $f(x)$}
+        \label{tab:tblm} 
+        \writetable{\tblm}\par
+        \bigskip
+        \centering
+        {Avaliação Direta de $f(x)$}
+        \label{tab:tbln} 
+        \writetable{\tbln}     
+        \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 1.0$}
+    \end{minipage}
+    \vspace{3mm}
          
 \newpage    
