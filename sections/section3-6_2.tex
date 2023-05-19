@@ -1,0 +1,155 @@
+\pgfplotstableread{data/sec1s1tbl18_tEnd.txt}{\tblBa}
+\pgfplotstableread{data/sec1s1tbl18_N_Iter.txt}{\tblBb}
+\pgfplotstableread{data/sec1s1tbl18_N_Evals.txt}{\tblBc}
+\pgfplotstableread{data/sec1s1tbl18_Erro_Xsol_P.txt}{\tblBd}
+\pgfplotstableread{data/sec1s1tbl18_Erro_F_P.txt}{\tblBe}
+\pgfplotstableread{data/sec1s1tbl18_DFP_raw.txt}{\tblBDFP}
+\pgfplotstableread{data/sec1s1tbl18_BFGS_raw.txt}{\tblBBFGS}
+\pgfplotstableread{data/sec1s1tbl18_Huang_raw.txt}{\tblBHuang}
+\pgfplotstableread{data/sec1s1tbl18_Biggs_raw.txt}{\tblBBiggs}
+
+
+\begin{minipage}[h!]{\linewidth}
+    \centering
+    \hrule
+    \vspace{2mm}
+    Técnica da Seção Áurea Feita por meio de Aproximações Quadráticas para $F(x)$ \\ $\alpha=0$
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}
+    Tempo de Processamento Médio\\
+    \label{tab:tblBa} 
+    \writetablestt{\tblBa}\par
+    \bigskip
+    \centering
+    Número de Iterações\\
+    \label{tab:tblBb} 
+    \writetablestt{\tblBb}\par
+    \bigskip
+    \centering
+    Número de Avaliações de $f(x)$\\
+    \label{tab:tblBc} 
+    \writetablestt{\tblBc}\par
+    \vspace{2mm}
+    \hrule
+    \vspace{2mm}
+    \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0$}
+\end{minipage}
+
+\pgfplotsset{width=7.5cm,height=6cm,compat=1.18}\usepgfplotslibrary{statistics} 
+\begin{figure}[h!]
+    \centering            
+    \subfloat[\centering Tempo de Processamento]{{
+        \begin{tikzpicture}
+            \begin{semilogyaxis}[
+                boxplot,
+                table/y=TEnd,
+                boxplot/draw direction=y,
+                %title={Tempo total de execução},
+                xlabel={Métodos},
+                ylabel={Tempo(s)},
+                grid=major,
+                xtick={1,2,3,4},
+                xticklabels={DFP,BFGS,Huang,Biggs},]
+                \addplot table{\tblBDFP};
+                \addplot table{\tblBBFGS};
+                \addplot table{\tblBHuang};
+                \addplot table{\tblBBiggs};
+            \end{semilogyaxis}    
+        \end{tikzpicture} 
+        }}%
+    \qquad
+    \subfloat[\centering Numero de Iterações]{{
+        \begin{tikzpicture}
+            \begin{semilogyaxis}[
+                boxplot,
+                table/y=N_Iter,
+                boxplot/draw direction=y,
+                %title={},
+                xlabel={Métodos},
+                ylabel={Iterações(-)},
+                grid=major,
+                xtick={1,2,3,4},
+                xticklabels={DFP,BFGS,Huang,Biggs},]
+                \addplot table{\tblBDFP};
+                \addplot table{\tblBBFGS};
+                \addplot table{\tblBHuang};
+                \addplot table{\tblBBiggs};
+            \end{semilogyaxis}    
+        \end{tikzpicture} 
+        }}%
+    \qquad
+    \subfloat[\centering Número de Avaliações de $f(x)$]{{
+        \begin{tikzpicture}
+            \begin{semilogyaxis}[
+                boxplot,
+                table/y=N_Evals_F,
+                boxplot/draw direction=y,
+                %title={Numero de avaliações da função Objetivo},
+                xlabel={Métodos},
+                ylabel={Avaliações(-)},
+                grid=major,
+                xtick={1,2,3,4},
+                xticklabels={DFP,BFGS,Huang,Biggs},]
+                \addplot table{\tblBDFP};
+                \addplot table{\tblBBFGS};
+                \addplot table{\tblBHuang};
+                \addplot table{\tblBBiggs};
+            \end{semilogyaxis}   
+            \label{fig:fig1c}%
+        \end{tikzpicture} 
+    }}%
+    \caption{Análise gráfica da dispersão dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0$.}%
+    \label{fig:fig1}%
+\end{figure}
+
+\FloatBarrier
+\newpage
+
+\pgfplotsset{width=18cm,height=4.94cm}
+ \begin{figure}[h!]
+    \centering            
+    \subfloat[\centering Erro $X_{sol}$ (\%)]{{
+        \begin{tikzpicture}
+            \begin{axis}[%
+            grid=major,
+            xmax=60,
+            scatter/classes={%
+            DFP={mark=diamond*,draw=black},BFGS={mark=square*,draw=blue},Huang={mark=star,draw=red},Biggs={mark=triangle*,draw=green}}]
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblBDFP};
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblBBFGS};
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblBHuang};
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_Xsol_P,meta=Metodo]{\tblBBiggs};
+                \addlegendentry{DFP}
+                \addlegendentry{BFGS}
+                \addlegendentry{Huang}
+                \addlegendentry{Biggs}
+            \end{axis}                     
+        \end{tikzpicture} 
+        }}%   
+    \qquad
+    \subfloat[\centering Erro $F(x_{sol})$ (\%)]{{
+        \begin{tikzpicture}
+            \begin{axis}[%
+            grid=major,
+            xmax=60,
+            scatter/classes={%
+            DFP={mark=diamond*,draw=black},BFGS={mark=square*,draw=blue},Huang={mark=star,draw=red},Biggs={mark=triangle*,draw=green}}]
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_F_P,meta=Metodo]{\tblBDFP};
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_F_P,meta=Metodo]{\tblBBFGS};
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_F_P,meta=Metodo]{\tblBHuang};
+                \addplot[scatter,only marks,scatter src=explicit symbolic]table[x=spl,y=Erro_F_P,meta=Metodo]{\tblBBiggs};
+                \addlegendentry{DFP}
+                \addlegendentry{BFGS}
+                \addlegendentry{Huang}
+                \addlegendentry{Biggs}
+            \end{axis}                     
+        \end{tikzpicture} 
+        }}%    
+    \caption{{Análise gráfica dos erros dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0$.}}%
+    \label{fig:example}%
+\end{figure} 
+
+\FloatBarrier
+\newpage
