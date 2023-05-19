@@ -3,7 +3,7 @@ O principal método de otimização desenvolvido a fim de solucionar os problema
 Todo esse cenário proporcionou o desenvolvimento de novos métodos de otimização, que buscam manter a qualidade de convergência do método de Newton e, simultaneamente, diminuir o custo computacional por meio de calcular as derivadas da função objetivo de forma aproximada. Como já abordado nesse trabalho, esses métodos são conhecidos como métodos Quase-Newton.
 A fim de verificar e comparar o desempenho dos algoritmos da família de métodos Quase-Newton (o BFGS e o DFP nas suas formas tradicionais e com as adaptações de Huang e de Biggs) serão consideradas seis funções de teste, as quais são apresentadas nas próximas seções.
 
-\subsection{Primeira Função de Teste}
+\subsection{Primeira Função de Teste}\label{sec:prifun}
 
 A primeira função de teste se trata de uma função objetivo com variável de decisão e de dimensão dada por:
 
@@ -43,18 +43,18 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
 
 \begin{figure}[h!]
     \centering 
-    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/prifun.png}\label{<figure1>}}    
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/prifun.png}}    
     \qquad
-    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graprifun.png}\label{<figure2>}} 
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graprifun.png}} 
     \qquad
-    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelprifun.png}\label{<figure2>}} 
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelprifun.png}} 
     \caption{Primeira função de teste}%
-    \label{fig:fig1}%
+    \label{fig:prifun}%
 \end{figure}
  \FloatBarrier
 Ao observar os gráficos ilustrados nas figuras 1 e 2 é fácil notar que a função apresentada em \ref{eq:prifuntst} é uma função quadrática deslocada com o mínimo posicionado em $X_{1xn}=[\ 1 , 1 , \ldots , 1 ]\ $ (em duas dimensões um paraboloide).
 
-\subsection{Segunda Função de Teste}
+\subsection{Segunda Função de Teste}\label{sec:secfun}
 
 A segunda função de teste se trata de uma função objetivo com duas variáveis independentes com termos quadráticos e um cúbico, em que o termo cúbico deve apresentar menor influência no caso de se utilizar métodos Quase-Newton para determinar o mínimo da função. Essa função é definida como apresentado abaixo:
 
@@ -74,11 +74,85 @@ onde $a$ é um parâmetro que assume valores que ponderam a influência do termo
 A solução ótima desse problema pode ser determinada ao considerar $\nabla f(x)=0$. Nesse caso, conforme pode ser observado pelo sistema de equações em \ref{eq:gradsecfuntst}, a solução ótima é dependente da escolha de $a$ , podendo ser obtida por meio da resolução desse sistema.
 Os gráficos da função em \ref{eq:secfuntst}, do gradiente e das curvas de nível considerando valores do parâmetro $a$ igual a zero e igual a um são ilustrados abaixo:
 
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/secfun0.png}}    
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/grasecfun0.png}}
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelsecfun0.png}}
+    \caption{Segunda função de teste para $\alpha$=0}%
+    \label{fig:secfun0}%
+\end{figure}
+\FloatBarrier
 
-\subsection{Terceira Função de Teste}
-\subsection{Quarta Função de Teste}
-\subsection{Quinta Função de Teste}
-\subsection{Sexta Função de Teste}
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/secfun1.png}}   
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/grasecfun1.png}}
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelsecfun1.png}}
+    \caption{Segunda função de teste para $\alpha$=1}%
+    \label{fig:secfun0}%
+\end{figure}
+\FloatBarrier
+
+Ao observar os gráficos ilustrados nas figura \ref{fig:secfun0} nota-se que a função apresentada em \ref{eq:secfuntst} é uma função quadrática com o mínimo igual a $X =[\ -\frac{1}{3} , -\frac{1}{2} ]\ $. Já os gráficos ilustrados na figura \ref{fig:secfun0} mostram que esta mesma função é uma função não quadrática perfeita devido ao parâmetro não nulo (nesse caso,$a=1$). Além disso, o mínimo dessa função, como já mencionado, depende do parâmetro $a$.
+Percebe-se que um importante aspecto relacionado à análise da função estudada é relativo ao intervalo de variação do parâmetro . Ressalta-se que somente para pequenos valores de $a$ ( faixa $-0.0263\leq a \leq 0.0263$ ) a Hessiana da função em \ref{eq:secfuntst} será semi-definida positiva, exceto no caso em que $a$ é nulo onde a Hessiana da função é definida positiva. Fora dessa faixa, ou seja, para valores de $a$ fora do intervalo, a função deixa de ser convexa. Nesse caso, o termo cúbico passa a ter maior influência e, consequentemente, no processo de busca de soluções pode ocorrer a convergência para bacias de atração indesejadas. Dessa forma, a faixa de variação do parâmetro $a$ deve ser dada de forma a respeitar a convexidade da função.
+A matriz Hessiana da função estudada é apresentada pela equação abaixo:
+
+\begin{equation}\label{eq:hessecfun}
+    H = \begin{bmatrix}
+                    24+6*a*x_1 & -12 \\
+                    -12 & 8+6*a*x_2
+                \end{bmatrix} \rightarrow det(H) = (24+6*a*x_1)*(8+6*a*x_2)-144   
+\end{equation}
+
+No caso em que a função em \ref{eq:secfuntst}  apresenta termos não quadráticos insignificativos, o determinante apresentado na equação \ref{eq:hessecfun} é diferente de zero. Já no caso contrário, o determinante se aproxima de zero, o que evidencia a singularidade da hessiana e a expressividade do termo não quadrático.
+
+\subsection{Terceira Função de Teste}\label{sec:terfun}
+
+A terceira função de teste se trata de uma função objetivo com duas variáveis de decisão como apresentado abaixo:
+
+\begin{equation}\label{eq:terfuntst}
+    f(x)=-8*x_1*x_2+\frac{4}{a^2}*x2*x2^3+\frac{4}{a^2}*x_1*x_2^3
+\end{equation}
+
+Ao observar a equação \label{eq:terfuntst} percebe-se que a função objetivo $f(x)$ possui duas parcelas cúbicas. Todavia, ao considerar $a=\sqrt{2}$ e os intervalos para as variáveis de decisão igual a $[\ 0 , 3 ]\ $ tem-se  que a função $f(x)$ passa a se comportar como uma função quadrática. O gradiente da função apresentada em \ref{eq:terfuntst} pode ser escrito como segue:
+
+\begin{equation}\label{eq:gradterfuntst}
+    \nabla f(x) = \begin{cases}
+         -8*x_2+\frac{12}{a^1}*x_2*x_1^2+\frac{4}{a^2}*x_2^3\\
+         -8*x_1+\frac{12}{a^1}*x_1*x_2^2+\frac{4}{a^2}*x_1^3
+    \end{cases}
+\end{equation} 
+   	   
+Os gráficos dessa função, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
+
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/terfun.png}}   
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graterfun.png}}
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelterfun.png}}
+    \caption{Segunda função de teste para $\alpha$=1}%
+    \label{fig:secfun0}%
+\end{figure}
+\FloatBarrier
+
+\subsection{Quarta Função de Teste}\label{sec:quafun}
+
+
+
+\subsection{Quinta Função de Teste}\label{sec:quifun}
+
+
+
+\subsection{Sexta Função de Teste}\label{sec:sexfun}
+
+
 
 \subsection{Considerações dos Experimentos}
   A Tabela \ref{tab:tab_doe} apresenta de forma sumarizada como os experimentos devem ser realizados e analisados.
@@ -184,4 +258,8 @@ A função desenvolvida no Matlab que soluciona os problemas propostos nesse tra
 
 Finalmente, a precisão que define um dos critérios de parada dos algoritmos Quase-Newton executados nesse trabalho será $10^{-6}$ . Sendo \textbf{dim} a dimensão do problema de otimização a ser resolvido. O número máximo de iterações define um segundo critério de parada e será:
 
-\[ \textrm{N\degree Máximo de Iteração} = 2 * dim * 100\]
+\begin{equation}\label{eq:maxevals}
+    \textrm{N\degree Máximo de Iteração} = 2 * dim * 100    
+\end{equation}
+
+\newpage
