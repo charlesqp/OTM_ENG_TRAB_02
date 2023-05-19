@@ -41,19 +41,40 @@ O gradiente da função apresentada em \ref{eq:prifuntst} é dado por:
 
 Os gráficos dessa função, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
 
-(a) (b)
-Figura 1 Primeira função de teste (a) Função objetivo; (b) Gradiente da função objetivo.
-
-
-
-Figura 2 Curvas de nível da primeira função de teste.
-
-Ao observar os gráficos ilustrados nas figuras 1 e 2 é fácil notar que a função apresentada em (21) é uma função quadrática deslocada com o mínimo posicionado em
-             (em duas dimensões um paraboloide).
-
-
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/prifun.png}\label{<figure1>}}    
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graprifun.png}\label{<figure2>}} 
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelprifun.png}\label{<figure2>}} 
+    \caption{Primeira função de teste}%
+    \label{fig:fig1}%
+\end{figure}
+ \FloatBarrier
+Ao observar os gráficos ilustrados nas figuras 1 e 2 é fácil notar que a função apresentada em \ref{eq:prifuntst} é uma função quadrática deslocada com o mínimo posicionado em $X_{1xn}=[\ 1 , 1 , \ldots , 1 ]\ $ (em duas dimensões um paraboloide).
 
 \subsection{Segunda Função de Teste}
+
+A segunda função de teste se trata de uma função objetivo com duas variáveis independentes com termos quadráticos e um cúbico, em que o termo cúbico deve apresentar menor influência no caso de se utilizar métodos Quase-Newton para determinar o mínimo da função. Essa função é definida como apresentado abaixo:
+
+\begin{equation}\label{eq:secfuntst}
+  f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 + a*(x_1^3+x_2^3)
+\end{equation}
+
+onde $a$ é um parâmetro que assume valores que ponderam a influência do termo cúbico na função. O gradiente da função apresentada em \ref{eq:secfuntst} pode ser escrito como se segue:
+
+\begin{equation}\label{eq:gradsecfuntst}
+    \nabla f(x) = \begin{cases}
+        24*x_1-12*x_2+2+3*a*x_1^2\\
+       8*x_2-12*x_1+3*a*x_2^2
+    \end{cases}
+\end{equation}
+
+A solução ótima desse problema pode ser determinada ao considerar $\nabla f(x)=0$. Nesse caso, conforme pode ser observado pelo sistema de equações em \ref{eq:gradsecfuntst}, a solução ótima é dependente da escolha de $a$ , podendo ser obtida por meio da resolução desse sistema.
+Os gráficos da função em \ref{eq:secfuntst}, do gradiente e das curvas de nível considerando valores do parâmetro $a$ igual a zero e igual a um são ilustrados abaixo:
+
+
 \subsection{Terceira Função de Teste}
 \subsection{Quarta Função de Teste}
 \subsection{Quinta Função de Teste}
