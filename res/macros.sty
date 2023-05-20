@@ -1,6 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{macros}[2023/05/05 Pacote de macros]
 
+\restylefloat{table}
+\newcolumntype{C}[1]{>{\Centering}m{#1}}
+\renewcommand\tabularxcolumn[1]{C{#1}}
+
 \newcommand\myemptypage% Insere uma página em branco sem numeração
 { 
     \null
@@ -40,7 +44,5 @@
         columns/Biggs/.style={column name={Biggs} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
     ]{#1}  
  }
-
-
  
 \endinput
