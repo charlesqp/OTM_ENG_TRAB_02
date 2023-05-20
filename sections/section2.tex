@@ -94,11 +94,11 @@ Os gráficos da função em \ref{eq:secfuntst}, do gradiente e das curvas de ní
     \qquad
     \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelsecfun1.png}}
     \caption{Segunda função de teste para $\alpha$=1}%
-    \label{fig:secfun0}%
+    \label{fig:secfun1}%
 \end{figure}
 \FloatBarrier
 
-Ao observar os gráficos ilustrados nas figura \ref{fig:secfun0} nota-se que a função apresentada em \ref{eq:secfuntst} é uma função quadrática com o mínimo igual a $X =[\ -\frac{1}{3} , -\frac{1}{2} ]\ $. Já os gráficos ilustrados na figura \ref{fig:secfun0} mostram que esta mesma função é uma função não quadrática perfeita devido ao parâmetro não nulo (nesse caso,$a=1$). Além disso, o mínimo dessa função, como já mencionado, depende do parâmetro $a$.
+Ao observar os gráficos ilustrados nas figura \ref{fig:secfun0} nota-se que a função apresentada em \ref{eq:secfuntst} é uma função quadrática com o mínimo igual a $X =[\ -\frac{1}{3} , -\frac{1}{2} ]\ $. Já os gráficos ilustrados na figura \ref{fig:secfun1} mostram que esta mesma função é uma função não quadrática perfeita devido ao parâmetro não nulo (nesse caso,$a=1$). Além disso, o mínimo dessa função, como já mencionado, depende do parâmetro $a$.
 Percebe-se que um importante aspecto relacionado à análise da função estudada é relativo ao intervalo de variação do parâmetro . Ressalta-se que somente para pequenos valores de $a$ ( faixa $-0.0263\leq a \leq 0.0263$ ) a Hessiana da função em \ref{eq:secfuntst} será semi-definida positiva, exceto no caso em que $a$ é nulo onde a Hessiana da função é definida positiva. Fora dessa faixa, ou seja, para valores de $a$ fora do intervalo, a função deixa de ser convexa. Nesse caso, o termo cúbico passa a ter maior influência e, consequentemente, no processo de busca de soluções pode ocorrer a convergência para bacias de atração indesejadas. Dessa forma, a faixa de variação do parâmetro $a$ deve ser dada de forma a respeitar a convexidade da função.
 A matriz Hessiana da função estudada é apresentada pela equação abaixo:
 
@@ -119,7 +119,7 @@ A terceira função de teste se trata de uma função objetivo com duas variáve
     f(x)=-8*x_1*x_2+\frac{4}{a^2}*x2*x2^3+\frac{4}{a^2}*x_1*x_2^3
 \end{equation}
 
-Ao observar a equação \label{eq:terfuntst} percebe-se que a função objetivo $f(x)$ possui duas parcelas cúbicas. Todavia, ao considerar $a=\sqrt{2}$ e os intervalos para as variáveis de decisão igual a $[\ 0 , 3 ]\ $ tem-se  que a função $f(x)$ passa a se comportar como uma função quadrática. O gradiente da função apresentada em \ref{eq:terfuntst} pode ser escrito como segue:
+Ao observar a equação \ref{eq:terfuntst} percebe-se que a função objetivo $f(x)$ possui duas parcelas cúbicas. Todavia, ao considerar $a=\sqrt{2}$ e os intervalos para as variáveis de decisão igual a $[\ 0 , 3 ]\ $ tem-se  que a função $f(x)$ passa a se comportar como uma função quadrática. O gradiente da função apresentada em \ref{eq:terfuntst} pode ser escrito como segue:
 
 \begin{equation}\label{eq:gradterfuntst}
     \nabla f(x) = \begin{cases}
@@ -205,13 +205,13 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
 
 \begin{figure}[h!]
     \centering 
-    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/quafun.png}}   
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/quafun.png}}
     \qquad
     \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graquafun.png}}
     \qquad
     \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelquafun.png}}
     \caption{Quarta função de teste}%
-    \label{fig:terfun}%
+    \label{fig:quafun}%
 \end{figure}
 \FloatBarrier
 
@@ -219,13 +219,79 @@ Ao observar os gráficos ilustrados nas figuras 9 e 10 é fácil notar que a fun
 
 \subsection{Quinta Função de Teste}\label{sec:quifun}
 
-A quinta função de teste é uma função com duas variáveis proveniente do problema de Rosen-Suzuki. Esse problema é considerado um problema de otimização restrito cuja função pseudo-objetivo pode ser considerada uma função quadrática. Vale ressaltar que a função pseudo-objetivo é dada pela soma da função objetivo com a função de penalidade que traduz as restrições não lineares, fazendo com que as soluções fornecidas por algum processo de otimização sejam factíveis.
-
+A quinta função de teste é uma função com duas variáveis proveniente do problema de Rosen-Suzuki. Esse problema é considerado um problema de otimização restrito cuja função pseudo-objetivo pode ser considerada uma função quadrática. Vale ressaltar que a função pseudo-objetivo é dada pela soma da função objetivo com a função de penalidade que traduz as restrições não lineares, fazendo com que as soluções fornecidas por algum processo de otimização sejam factíveis.\par
 Os gráficos dessa função, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
+
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/quifun.png}}   
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graquifun.png}}
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelquifun.png}}
+    \caption{Quinta função de teste}%
+    \label{fig:quifun}%
+\end{figure}
+\FloatBarrier
+
+Ao observar os gráficos ilustrados nas figuras 11 e 12 nota-se que a função pseudo-objetivo do problema Rosen-Suzuki é uma função quadrática com o mínimo posicionado em $x=[\ -1 , 1 ]\ $.
 
 \subsection{Sexta Função de Teste}\label{sec:sexfun}
 
+A sexta e última função de teste a ser estudada nesse trabalho se trata de uma função objetivo com n variáveis de decisão conhecida como função de  norma condicionada e inclinada \textit{(tilted and conditioned norm)}. Essa função na sua forma geral é apresentada abaixo:
 
+\begin{equation}\label{eq:sexfuntst}
+  f(x)= w*\lVert A*x \rVert_p+(w-1)*(A*x)_1
+\end{equation}
+
+Sendo $w$ e $p$ parâmetros da função $f(x)$ e o índice 1 do termo $(A*x)$ indica que apenas o primeiro elemento desse produto escalar é considerado. Além disso, a matriz $A$ é uma matriz quadrada conhecida como matriz de Hilbert em que os seus elementos são calculados de acordo com a equação abaixo:
+
+\begin{equation}\label{eq:auxsexfuntst}
+  A(i,j)= \frac{1}{1+i-j} \begin{cases}
+        i \rightarrow N\degree linha\\
+        j \rightarrow N\degree Coluna
+    \end{cases}
+\end{equation}
+
+Considerando $p=2$, $w=8$ e $x=[\ x_1 , x_2 ]\ $ (problema com duas dimensões), a equação (\ref{eq:sexfuntst}) pode ser escrita conforme apresentado abaixo:
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\begin{equation}\label{eq:sexfuntst}
+  f(x)= 8*\norm{ x_1 + \frac{x_2}{2},\frac{x_1}{2}+\frac{x_2}{3} }_2+7*(x_1+\frac{x_2}{2}) 
+\end{equation}
+
+No caso da equação apresentada em (\ref{eq:sexfuntst}), o operador $\norm{,}_2$  equivale à norma Euclidiana ($\mathbb{L}_2$). \par
+O gradiente da função $f(x)$ na sua forma geral é dado por:
+
+\begin{equation}\label{eq:gradsexfuntst}
+    \nabla f(x) = \left(\frac{w*x^T*A^T*A}{\norm{A*x}_p}+(w-1)*(A*x)\right)^T
+\end{equation}
+
+Novamente, considerando $p=2$, $w=8$ e $x=[\ x_1 , x_2 ]\ $ (problema com duas dimensões), a equação (\ref{eq:gradsexfuntst}) pode ser escrita conforme apresentado abaixo:
+
+\begin{equation}\label{eq:gradsexfuntst}
+    \nabla f(x) = \left(\frac{8*x^T*A^T*A}{\norm{ x_1 + \frac{x_2}{2},\frac{x_1}{2}+\frac{x_2}{3} }_2}+7*(A*x)\right)^T
+\end{equation}
+
+Sendo:
+
+\begin{equation*}
+    A = \begin{bmatrix}
+        1 & \frac{1}{2} \\
+        \frac{1}{2} & \frac{1}{3} \\
+    \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+    x = \begin{bmatrix}
+        x_1 & x_2
+    \end{bmatrix}
+\end{equation*}
+
+Essa função, além de não ser uma função quadrática, apresenta um comportamento cujo valor do determinante da Hessiana é muito próximo de zero. Dessa forma, é constatado um problema de otimização com singularidade, o qual os métodos Quase-Newton possuem dificuldades de resolver, tornando relevante o estudo de como esses métodos conseguem contornar esse problema. Vale ressaltar que a solução ótima, no caso da função objetivo escrita em (\ref{eq:sexfuntst}) é igual a $x=[\ 0 , 0 ]\ $. \par
+
+Os gráficos da função apresentada nessa seção, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
 
 \subsection{Considerações dos Experimentos}
   A Tabela \ref{tab:tab_doe} apresenta de forma sumarizada como os experimentos devem ser realizados e analisados.
