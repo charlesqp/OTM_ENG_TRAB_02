@@ -137,14 +137,86 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
     \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graterfun.png}}
     \qquad
     \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelterfun.png}}
-    \caption{Segunda função de teste para $\alpha$=1}%
-    \label{fig:secfun0}%
+    \caption{Terceira função de teste}%
+    \label{fig:terfun}%
 \end{figure}
 \FloatBarrier
 
+Ao observar os gráficos ilustrados na figura \ref{fig:terfun} observa-se que a função apresentada em (\ref{eq:terfuntst}), no intervalo definido para as variáveis de decisão, pode ser considerada uma função quadrática cujo o mínimo é dado pelo ponto $x=[\ 1 , 1 ]\ $.
+
 \subsection{Quarta Função de Teste}\label{sec:quafun}
 
+A quarta função de teste se trata de uma função objetivo com variável de decisão e de dimensão	dada por:
 
+\begin{equation}\label{eq:quafuntst}
+  f(x)= \frac{1}{2}*(x-c)^{T}*A*(x-c)+a*\sum_{k=1}^{n}{(x_k-1)^3}
+\end{equation}
+
+
+Onde $a$ é um parâmetro que pondera o termo cúbico,	$c$ é um vetor unitário e $A$ é uma matriz diagonal. Ressalta-se que para os casos estudados $A$ é a matriz identidade e $c$ é um vetor unitário como apresentado abaixo:
+
+\begin{equation*}
+    X_{1xn} = \begin{bmatrix}
+                    X_1 & X_2 & \ldots & X_n
+                \end{bmatrix}    
+\end{equation*}
+\begin{equation*}
+    C_{1xn} = \begin{bmatrix}
+                    1 & 1 & \ldots & 1
+                \end{bmatrix}    
+\end{equation*}
+\begin{equation*}
+    A_{nxn} = \begin{bmatrix}
+                    1 & 0 & \ldots & 0 & 0 \\
+                    0 & 1 & \ldots & 0 & 0 \\
+                    \vdots & \vdots & \ddots & \vdots & \vdots \\
+                    0 & 0 & \ldots & 1 & 0 \\
+                    0 & 0 & \ldots & 0 & 1 \\
+                \end{bmatrix}    
+\end{equation*}
+
+No caso em que o parâmetro $a$ é igual a zero, a função $f(x)$ se torna idêntica a primeira função de teste apresentada na seção \ref{sec:prifun}. Dessa forma, para o termo cúbico ser considerado, o valor de $a$ deve ser diferente de zero.
+O gradiente da função apresentada em (\ref{eq:quafuntst}) é dado por:
+
+\begin{equation}\label{eq:gradquafuntst}
+    \nabla f(x) = A*(x-c)+3*a*\sum_{k=1}^{n}{(x_k-1)^2}
+\end{equation}
+
+A Hessiana dessa função é descrita como:
+
+\begin{equation}\label{eq:hesquafuntst}
+    H_{nxn} = \begin{bmatrix}
+                    1+6*a(x_1-1) & 0            & \ldots & 0                & 0 \\
+                    0            & 1+6*a(x_2-1) & \ldots & 0                & 0 \\
+                    \vdots       & \vdots       & \ddots & \vdots           & \vdots \\
+                    0            & 0            & \ldots & 1+6*a(x_{n-1}-1) & 0 \\
+                    0            & 0            & \ldots & 0                & 1+6*a(x_{n}-1) \\
+                \end{bmatrix}    
+\end{equation}    
+{\centering \\ $\downarrow$\\}
+\begin{equation*}
+det(H)=(1+6*a(x_1-1))*( 1+6*a(x_2-1))*\ldots*(1+6*a(x_{n-1}-1))*(1+6*a(x_{n}-1))
+\end{equation*}
+
+No intuito de obter uma Hessiana semi-definida positiva, ou seja, no caso onde não há singularidade, deve-se obter valores de que respeitem a seguinte condição: 
+{\centering\\$det(H)\geq 0$.\\}
+O valor do parâmetro para função \ref{eq:gradquafuntst} foi $a = 0.0263$. 
+
+Os gráficos dessa função, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
+
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/quafun.png}}   
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/graquafun.png}}
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelquafun.png}}
+    \caption{Quarta função de teste}%
+    \label{fig:terfun}%
+\end{figure}
+\FloatBarrier
+
+Ao observar os gráficos ilustrados nas figuras 9 e 10 é fácil notar que a função apresentada em (\ref{eq:quafuntst}) é uma função não quadrática perfeita devido ao parâmetro $a = 0.0263$, não nulo (nesse caso). Além disso, o mínimo dessa função depende do valor do parâmetro a.
 
 \subsection{Quinta Função de Teste}\label{sec:quifun}
 
