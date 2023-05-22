@@ -9,6 +9,12 @@
 \pgfplotstableread{data/sect3s1/sec3s1tbl8.txt}{\tblg}
 \pgfplotstableread{data/sect3s1/sec3s1tbl9.txt}{\tblh}
 
+\pgfplotstableread{data/sect3s1/sect3s1f1_TEnd_Medio.txt}{\tblanovaT}
+\pgfplotstableread{data/sect3s1/sect3s1f1_N_Iter_Medio.txt}{\tblanovaNI}
+\pgfplotstableread{data/sect3s1/sect3s1f1_N_Evals_F_Medio.txt}{\tblanovaNE}
+\pgfplotstableread{data/sect3s1/sect3s1f1_Erro_Xsol_P_Medio.txt}{\tblanovaEX}
+\pgfplotstableread{data/sect3s1/sect3s1f1_Erro_F_P_Medio.txt}{\tblanovaEF}
+
 \section{1° Experimento: Avaliação das Funções Quadráticas}
     \subsection{Primeira Função Analisada}
 
@@ -67,18 +73,53 @@
             \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{4}}$}
         \end{minipage}
 
-        \subsubsection{Análise}
+        \subsubsection{Análise Anova}
 
-            \pgfplotstableread[unbounded coords=jump]{data/sect3s1/sect3s1f1_TEnd_Medio.txt}{\tblanovaT}
-            \writeanovatable{\tblanovaT}
-            
+\begin{minipage}[h!]{\linewidth}
+    \centering
+    \hrule
+    \vspace{2mm}
+    {Tabela Anova 2 Fatores com blocos Aleatórizados}
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}
+    Tempo de Processamento Médio\\
+    \label{tab:tblDa} 
+    \writeanova{\tblanovaT}\par
+    \bigskip
+    \centering
+    Número de Iterações\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaNI}\par
+    \bigskip
+    \centering
+    Número de Avaliações de $f(x)$\\
+    \label{tab:tblDc} 
+    \writeanova{\tblanovaNE}\par
+    \bigskip
+    \centering
+    {Erro de $X_{sol}(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEX}\par
+    \bigskip
+    \centering
+    {Erro de $F(X_{sol})(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEF}\par
+    \vspace{2mm}
+    \hrule
+    \vspace{2mm}
+    \captionof{table}{Análise estatística dos Métodos Quase-Newton para a técnica da seção áurea feita por meio da avaliação direta da função objetivo e parâmetro $\alpha=0.0263$}
+\end{minipage}
+
             Para funções quadráticas, os métodos Quase-Newton:
             \begin{itemize}
-            \item {Tempo (s):} As aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes maior. O quadrante do ponto inicial não apresenta alteração no resultado. A média dos tempos é semelhante para todos os métodos.
-            \item {Iterações:} Não variou significativamente para qualquer uma das condições.
-            \item {Avaliações de$F(x)$:} Aumentam consideravelmente quando se emprega a técnica da avaliação direta da função para o cálculo da seção áurea. 
-            \item {Erro $X_{sol}$ (\%):} O erro é muito pequeno para todas as todas as variações, $\leq 10^{-9}$. Aparentemente o quadrante do ponto inicial aumenta em $10^5$ o tempo erro de $X_{sol}$. Pontos iniciais nos $1\degree$ e $4\degree$ quadrantes tem erros maiores. Porém ainda são virtualmente zero.
-            \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zeram o erro da Função objetivo calculado no ponto da solução para todas as variações. 
+            \item {Tempo (s):} As aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes maior. A média dos tempos é semelhante para todos os métodos. O teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para a variação dos tempos médios de execução assim como a iteração entre este o método de otimização. 
+            \item {Iterações:} Não variou significativamente para qualquer uma das condições. O teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para a variação do número de Iterações. Aparentemente, pela observação direta dos resultados, tem-se uma variação devida ao quadrante do ponto inicial que foi cancelada.
+            \item {Avaliações de$F(x)$:} Tanto a observação direta dos dados quanto o teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para na variação do número de Avaliações de$F(x)$.
+            \item {Erro $X_{sol}$ (\%):} O erro é muito pequeno para todas as todas as variações, $\leq 10^{-9}$. Aparentemente o quadrante do ponto inicial aumenta em $10^5$ o tempo erro de $X_{sol}$. Pontos iniciais nos $1\degree$ e $4\degree$ quadrantes tem erros maiores. Porém ainda são virtualmente zero. O teste F da tabela anova considera que nenhum dos fatores é capaz de causar alteração significativa desta variável.
+            \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zeram o erro da Função objetivo calculado no ponto da solução para todas variações de todos os fatores. O teste F da tabela anova considera que nenhum dos fatores é capaz de causar alteração significativa desta variável, devido a ela ter valor zero para todos os blocos executados.
             \end{itemize}
             
     \subsection{Segunda Função Analisada}
