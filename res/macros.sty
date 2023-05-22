@@ -45,18 +45,17 @@
     ]{#1}  
  }
 
- \newcommand{\writeanovaetable}[1] % Escreve uma tabela no texto com base em dados do arquivo txt, tipo2
-{  
-    \pgfplotstabletypeset
-    [ 
-    						
-        columns/Source/.style={string type, column name={Source}},
-        columns/SumSq_/.style={column name={Sum Sq.},precision=2,sci superscript},
-        columns/d_f_/.style={column name={d.f.},precision=2,sci superscript}, 
-        columns/Singular_/.style={column name={Singular},precision=2,sci superscript},
-        columns/MeanSq_/.style={column name={Mean Sq.},precision=2,sci superscript},
-        columns/F/.style={column name={F} ,precision=2,sci superscript},
-        columns/Prob_F/.style={column name={Prov>F},precision=2,sci superscript}
+ \newcommand{\writeanova}[1] % Escreve uma tabela no texto com base em dados do arquivo txt, tipo2
+{ 			
+    \pgfplotstabletypeset 
+    [   col sep=tab,
+        header=has colnames,        
+        columns={Source,SumSq_,d_f_,MeanSq_,F,Prob_F},        
+        columns/Source/.style={string type, column name={Fonte},string replace={Metodos}{Método},string replace={Secao_Aurea}{Seção Áurea},string replace={Metodos*Secao_Aurea}{Método*Seção Áurea},string replace={Error}{Erro}},
+        columns/d_f_/.style={ column name={D.f.}},
+        columns/SumSq_/.style={ column name={Sum Sq.}},
+        columns/MeanSq_/.style={ column name={Mean Sq.}},
+        columns/Prob_F/.style={ column name={Prob$>$F}}
     ]{#1}  
  }
 
