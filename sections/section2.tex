@@ -3,7 +3,7 @@ O principal método de otimização desenvolvido a fim de solucionar os problema
 Todo esse cenário proporcionou o desenvolvimento de novos métodos de otimização, que buscam manter a qualidade de convergência do método de Newton e, simultaneamente, diminuir o custo computacional por meio de calcular as derivadas da função objetivo de forma aproximada. Como já abordado nesse trabalho, esses métodos são conhecidos como métodos Quase-Newton.
 A fim de verificar e comparar o desempenho dos algoritmos da família de métodos Quase-Newton (o BFGS e o DFP nas suas formas tradicionais e com as adaptações de Huang e de Biggs) serão consideradas seis funções de teste, as quais são apresentadas nas próximas seções.
 
-\subsection{Primeira Função de Teste}\label{sec:prifun}
+\section{Primeira Função de Teste}\label{sec:prifun}
 
 A primeira função de teste se trata de uma função objetivo com variável de decisão e de dimensão dada por:
 
@@ -54,7 +54,7 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
  \FloatBarrier
 Ao observar os gráficos ilustrados nas figuras 1 e 2 é fácil notar que a função apresentada em \ref{eq:prifuntst} é uma função quadrática deslocada com o mínimo posicionado em $X_{1xn}=[\ 1 , 1 , \ldots , 1 ]\ $ (em duas dimensões um paraboloide).
 
-\subsection{Segunda Função de Teste}\label{sec:secfun}
+\section{Segunda Função de Teste}\label{sec:secfun}
 
 A segunda função de teste se trata de uma função objetivo com duas variáveis independentes com termos quadráticos e um cúbico, em que o termo cúbico deve apresentar menor influência no caso de se utilizar métodos Quase-Newton para determinar o mínimo da função. Essa função é definida como apresentado abaixo:
 
@@ -111,7 +111,7 @@ A matriz Hessiana da função estudada é apresentada pela equação abaixo:
 
 No caso em que a função em \ref{eq:secfuntst}  apresenta termos não quadráticos insignificativos, o determinante apresentado na equação \ref{eq:hessecfun} é diferente de zero. Já no caso contrário, o determinante se aproxima de zero, o que evidencia a singularidade da hessiana e a expressividade do termo não quadrático.
 
-\subsection{Terceira Função de Teste}\label{sec:terfun}
+\section{Terceira Função de Teste}\label{sec:terfun}
 
 A terceira função de teste se trata de uma função objetivo com duas variáveis de decisão como apresentado abaixo:
 
@@ -144,7 +144,7 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
 
 Ao observar os gráficos ilustrados na figura \ref{fig:terfun} observa-se que a função apresentada em (\ref{eq:terfuntst}), no intervalo definido para as variáveis de decisão, pode ser considerada uma função quadrática cujo o mínimo é dado pelo ponto $x=[\ 1 , 1 ]\ $.
 
-\subsection{Quarta Função de Teste}\label{sec:quafun}
+\section{Quarta Função de Teste}\label{sec:quafun}
 
 A quarta função de teste se trata de uma função objetivo com variável de decisão e de dimensão	dada por:
 
@@ -217,7 +217,7 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
 
 Ao observar os gráficos ilustrados nas figuras 9 e 10 é fácil notar que a função apresentada em (\ref{eq:quafuntst}) é uma função não quadrática perfeita devido ao parâmetro $a = 0.0263$, não nulo (nesse caso). Além disso, o mínimo dessa função depende do valor do parâmetro $a$.
 
-\subsection{Quinta Função de Teste}\label{sec:quifun}
+\section{Quinta Função de Teste}\label{sec:quifun}
 
 A quinta função de teste é uma função com duas variáveis proveniente do problema de Rosen-Suzuki. Esse problema é considerado um problema de otimização restrito cuja função pseudo-objetivo pode ser considerada uma função quadrática. Vale ressaltar que a função pseudo-objetivo é dada pela soma da função objetivo com a função de penalidade que traduz as restrições não lineares, fazendo com que as soluções fornecidas por algum processo de otimização sejam factíveis.\par
 Os gráficos dessa função, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
@@ -236,7 +236,7 @@ Os gráficos dessa função, do gradiente e das curvas de nível considerando du
 
 Ao observar os gráficos ilustrados nas figuras 11 e 12 nota-se que a função pseudo-objetivo do problema Rosen-Suzuki é uma função quadrática com o mínimo posicionado em $x=[\ -1 , 1 ]\ $.
 
-\subsection{Sexta Função de Teste}\label{sec:sexfun}
+\section{Sexta Função de Teste}\label{sec:sexfun}
 
 A sexta e última função de teste a ser estudada nesse trabalho se trata de uma função objetivo com n variáveis de decisão conhecida como função de  norma condicionada e inclinada \textit{(tilted and conditioned norm)}. Essa função na sua forma geral é apresentada abaixo:
 
@@ -293,7 +293,21 @@ Essa função, além de não ser uma função quadrática, apresenta um comporta
 
 Os gráficos da função apresentada nessa seção, do gradiente e das curvas de nível considerando duas variáveis são ilustrados abaixo:
 
-\subsection{Considerações dos Experimentos}
+\begin{figure}[h!]
+    \centering 
+    \subfloat[][Função objetivo]{\includegraphics[scale=1]{img/section2/sexfun.png}}   
+    \qquad
+    \subfloat[][Gradiente da função objetivo]{\includegraphics[scale=1]{img/section2/grasexfun.png}}
+    \qquad
+    \subfloat[][Curvas de nível]{\includegraphics[scale=1]{img/section2/nivelsexfun.png}}
+    \caption{Quinta função de teste}%
+    \label{fig:sexfun}%
+\end{figure}
+\FloatBarrier
+
+Ao observar os gráficos ilustrados na figura (\ref{fig:sexfun}) percebe-se a dificuldade que a singularidade traz na resolução dos problemas de otimização por meio dos métodos Quase-Newton.
+
+\section{Considerações dos Experimentos}
   A Tabela \ref{tab:tab_doe} apresenta de forma sumarizada como os experimentos devem ser realizados e analisados.
   % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
