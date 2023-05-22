@@ -1,0 +1,6 @@
+Source	SumSq_	d_f_	Singular_	MeanSq_	F	Prob_F
+Metodos	0	3	0	0	0	1
+Secao Aurea	248004	1	0	248004	227.735537190084	3.6770531029289e-07
+Metodos*Secao Aurea	0	3	0	0	0	1
+Error	8711.99999999994	8	0	1088.99999999999		
+Total	256716	15	0			
