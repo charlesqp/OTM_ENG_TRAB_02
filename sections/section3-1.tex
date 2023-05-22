@@ -67,7 +67,11 @@
             \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{4}}$}
         \end{minipage}
 
-        \subsubsection{Conclusão Parcial}
+        \subsubsection{Análise}
+
+            \pgfplotstableread[unbounded coords=jump]{data/sect3s1/sect3s1f1_TEnd_Medio.txt}{\tblanovaT}
+            \writeanovatable{\tblanovaT}
+            
             Para funções quadráticas, os métodos Quase-Newton:
             \begin{itemize}
             \item {Tempo (s):} As aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes maior. O quadrante do ponto inicial não apresenta alteração no resultado. A média dos tempos é semelhante para todos os métodos.

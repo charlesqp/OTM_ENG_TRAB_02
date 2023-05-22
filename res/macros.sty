@@ -45,6 +45,20 @@
     ]{#1}  
  }
 
+ \newcommand{\writeanovaetable}[1] % Escreve uma tabela no texto com base em dados do arquivo txt, tipo2
+{  
+    \pgfplotstabletypeset
+    [ 
+    						
+        columns/Source/.style={string type, column name={Source}},
+        columns/SumSq_/.style={column name={Sum Sq.},precision=2,sci superscript},
+        columns/d_f_/.style={column name={d.f.},precision=2,sci superscript}, 
+        columns/Singular_/.style={column name={Singular},precision=2,sci superscript},
+        columns/MeanSq_/.style={column name={Mean Sq.},precision=2,sci superscript},
+        columns/F/.style={column name={F} ,precision=2,sci superscript},
+        columns/Prob_F/.style={column name={Prov>F},precision=2,sci superscript}
+    ]{#1}  
+ }
 
      
 \endinput
