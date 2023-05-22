@@ -20,7 +20,7 @@
 }
 \pgfplotsset{compat=1.18}
 
-\newcommand{\writetable}[1]
+\newcommand{\writetable}[1] % Escreve uma tabela no texto com base em dados do arquivo txt, tipo1
 {  
     \pgfplotstabletypeset
     [
@@ -33,7 +33,7 @@
     ]{#1}  
  }
 
- \newcommand{\writetablestt}[1]
+ \newcommand{\writetablestt}[1] % Escreve uma tabela no texto com base em dados do arquivo txt, tipo2
 {  
     \pgfplotstabletypeset
     [
@@ -44,5 +44,7 @@
         columns/Biggs/.style={column name={Biggs} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
     ]{#1}  
  }
- 
+
+
+     
 \endinput

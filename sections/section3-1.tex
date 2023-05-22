@@ -9,10 +9,15 @@
 \pgfplotstableread{data/sect3s1/sec3s1tbl8.txt}{\tblg}
 \pgfplotstableread{data/sect3s1/sec3s1tbl9.txt}{\tblh}
 
-\subsection{1° Experimento: Avaliação das Funções Quadráticas}
-    \subsubsection{Primeira Função Analisada}
+\section{1° Experimento: Avaliação das Funções Quadráticas}
+    \subsection{Primeira Função Analisada}
 
-    A primeira função analisada consiste na função \ref{eq:prifuntst} da seção \ref{sec:prifun}.
+    A primeira função analisada consiste na função \ref{eq:prifuntst} da seção \ref{sec:prifun}, reapresentada a seguir:
+
+    \begin{equation*} 
+        f(x)= \frac{1}{2}*(x-c)^{T}*A*(x-c)
+    \end{equation*}
+
     Para o experimento em questão a função objetivo é avaliada em duas dimensões. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a $400$ e os limites inferior e superior das variáveis $[\-10, 10 ]\ $.
 
     Na execução dos algoritmos, os métodos Quase-Newton, deverão considerados quatro pontos iniciais. Em dois pontos iniciais empregando a técnica da seção áurea diretamente na avaliação da função e, nos outros dois pontos, usando  a técnica da seção áurea feita por aproximações quadráticas para a função, conforme exibido abaixo:
@@ -28,7 +33,7 @@
     
         \begin{minipage}{\linewidth}
             \centering
-            $x_0=[9,9]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+            $x_{0_{1}}=[9,9]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
             \label{tab:tbla} 
             \writetable{\tbla}
             \bigskip
@@ -37,7 +42,7 @@
 
         \begin{minipage}{\linewidth}
             \centering
-            $x_0=[-3,2]\Longrightarrow$  Avaliação Direta de $f(x)$
+            $x_{0_{2}}=[-3,2]\Longrightarrow$  Avaliação Direta de $f(x)$
             \label{tab:tblb} 
             \writetable{\tblb}
             \bigskip
@@ -46,7 +51,7 @@
 
         \begin{minipage}{\linewidth}
             \centering
-            $x_0=[-8,-6]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+            $x_{0_{3}}=[-8,-6]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
             \label{tab:tblc} 
             \writetable{\tblc}
             \bigskip
@@ -55,14 +60,24 @@
         
         \begin{minipage}{\linewidth}
             \centering
-            $x_0=[5,-7]\Longrightarrow$  Avaliação Direta de $f(x)$
+            $x_{0_{4}}=[5,-7]\Longrightarrow$  Avaliação Direta de $f(x)$
             \label{tab:tbld} 
             \writetable{\tbld}
             \bigskip
             \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{4}}$}
         \end{minipage}
-        
-    \subsubsection{Segunda Função Analisada}
+
+        \subsubsection{Conclusão Parcial}
+            Para funções quadráticas, os métodos Quase-Newton:
+            \begin{itemize}
+            \item {Tempo (s):} As aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes maior. O quadrante do ponto inicial não apresenta alteração no resultado. A média dos tempos é semelhante para todos os métodos.
+            \item {Iterações:} Não variou significativamente para qualquer uma das condições.
+            \item {Avaliações de$F(x)$:} Aumentam consideravelmente quando se emprega a técnica da avaliação direta da função para o cálculo da seção áurea. 
+            \item {Erro $X_{sol}$ (\%):} O erro é muito pequeno para todas as todas as variações, $\leq 10^{-9}$. Aparentemente o quadrante do ponto inicial aumenta em $10^5$ o tempo erro de $X_{sol}$. Pontos iniciais nos $1\degree$ e $4\degree$ quadrantes tem erros maiores. Porém ainda são virtualmente zero.
+            \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zeram o erro da Função objetivo calculado no ponto da solução para todas as variações. 
+            \end{itemize}
+            
+    \subsection{Segunda Função Analisada}
 
     A Segunda função analisada consiste na função apresentada na seção \ref{sec:secfun}.
 
@@ -91,8 +106,18 @@
             \bigskip
             \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{2}}$}
         \end{minipage}
-    
-    \subsubsection{Terceira Função Analisada}
+
+         \subsubsection{Conclusão Parcial}
+            Para funções quadráticas, os métodos Quase-Newton:
+            \begin{itemize}
+            \item {Tempo (s):} 
+            \item {Iterações:} 
+            \item {Avaliações de$F(x)$:} 
+            \item {Erro $X_{sol}$ (\%):} 
+            \item {Erro $F(x_{sol})$ (\%):} 
+            \end{itemize}        
+   
+    \subsection{Terceira Função Analisada}
 
     A terceira função analisada consiste na função da seção \ref{sec:terfun}.
     
@@ -121,4 +146,14 @@
             \bigskip
             \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{2}}$}
         \end{minipage}
+
+        \subsubsection{Conclusão Parcial}
+            Para funções quadráticas, os métodos Quase-Newton:
+            \begin{itemize}
+            \item {Tempo (s):} 
+            \item {Iterações:} 
+            \item {Avaliações de$F(x)$:} 
+            \item {Erro $X_{sol}$ (\%):} 
+            \item {Erro $F(x_{sol})$ (\%):} 
+            \end{itemize}
 \newpage
