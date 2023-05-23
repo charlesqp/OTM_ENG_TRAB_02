@@ -1,12 +1,5 @@
 % Experimentos e Resultados
 
-\pgfplotstableread{data/sect3s2/sec3s2tbl10a.txt}{\tbli}
-\pgfplotstableread{data/sect3s2/sec3s2tbl10b.txt}{\tblj}
-\pgfplotstableread{data/sect3s2/sec3s2tbl11a.txt}{\tblk}
-\pgfplotstableread{data/sect3s2/sec3s2tbl11b.txt}{\tbll}
-\pgfplotstableread{data/sect3s2/sec3s2tbl12a.txt}{\tblm}
-\pgfplotstableread{data/sect3s2/sec3s2tbl12b.txt}{\tbln}
-
 \section{2° Experimento: Avaliação das Funções Não Quadráticas}
     \subsection{Função Analisada}
 
@@ -27,83 +20,10 @@
     Vale ressaltar que o parâmetro a pondera o termo cúbico da função objetivo $f(x)$ do problema de otimização estudado, quanto maior o valor absoluto desse parâmetro, maior é a influência do termo não quadrático na função. Para esta função os valores assumidos para parâmetro  a que não comprometem a convexidade da função   no intervalo $[\ -10 , 10 ]\ $ estão no intervalo: \\ {\centering $-0.0263 \leq a \leq 0.0263$} \\
     \vspace{2mm}
 
-    {\centering
-    \hrule
-    \vspace{2mm}
-    $\alpha = -0.0263$
-    \vspace{2mm}
-    \noindent
-    \hrule 
-    \vspace{2mm}}
-      
-    \begin{minipage}[h!]{\linewidth}
-        \centering
-        Aproximações Quadráticas de $f(x)$
-        \label{tab:tbli} 
-        \writetable{\tbli}\par
-        \bigskip
-        \centering
-        Avaliação Direta de $f(x)$
-        \label{tab:tblj} 
-        \writetable{\tblj}
-        \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = -0.0263$}
-    \end{minipage}
-    \vspace{3mm}
-
-    {\centering
-    \hrule
-    \vspace{2mm}
-    $\alpha = 0.0263$
-    \vspace{2mm}
-    \noindent
-    \hrule 
-    \vspace{2mm}}
-    
-    \begin{minipage}[h!]{\linewidth}
-        \centering
-        {Aproximações Quadráticas de $f(x)$}
-        \label{tab:tblk} 
-        \writetable{\tblk}\par
-        \bigskip
-        \centering
-        {Avaliação Direta de $f(x)$}
-        \label{tab:tbll} 
-        \writetable{\tbll}
-        \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 0.0263$}
-    \end{minipage}
-    \vspace{3mm}
-
-    {\centering
-    \hrule
-    \vspace{2mm}
-    $\alpha = 1.0$
-    \vspace{2mm}
-    \noindent
-    \hrule 
-    \vspace{2mm}}
-    
-    \begin{minipage}[h!]{\linewidth}
-        \centering
-        {Aproximações Quadráticas de $f(x)$}
-        \label{tab:tblm} 
-        \writetable{\tblm}\par
-        \bigskip
-        \centering
-        {Avaliação Direta de $f(x)$}
-        \label{tab:tbln} 
-        \writetable{\tbln}     
-        \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 1.0$}
-    \end{minipage}
-    \vspace{3mm}
-
-    \subsubsection{Conclusão Parcial}
-            Para funções quadráticas, os métodos Quase-Newton:
-            \begin{itemize}
-            \item {Tempo (s):} 
-            \item {Iterações:} 
-            \item {Avaliações de$F(x)$:} 
-            \item {Erro $X_{sol}$ (\%):} 
-            \item {Erro $F(x_{sol})$ (\%):} 
-            \end{itemize}
-         
+    \subsection{$\alpha = -0.0263$}
+        \input{sections/section3-2_1} 
+    \subsection{$\alpha = +0.0263$}    
+        \input{sections/section3-2_2}  
+    \subsection{$\alpha = 0$}
+        \input{sections/section3-2_3} 
 \newpage    

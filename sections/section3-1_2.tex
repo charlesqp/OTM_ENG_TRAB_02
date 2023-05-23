@@ -1,0 +1,88 @@
+% Experimentos e Resultados
+
+\pgfplotstableread{data/sect3s1/sec3s1tbl6.txt}{\tble}
+\pgfplotstableread{data/sect3s1/sec3s1tbl7.txt}{\tblf}
+
+\pgfplotstableread{data/sect3s1/sect3s1f2_TEnd_Medio.txt}{\tblanovaT}
+\pgfplotstableread{data/sect3s1/sect3s1f2_N_Iter_Medio.txt}{\tblanovaNI}
+\pgfplotstableread{data/sect3s1/sect3s1f2_N_Evals_F_Medio.txt}{\tblanovaNE}
+\pgfplotstableread{data/sect3s1/sect3s1f2_Erro_Xsol_P_Medio.txt}{\tblanovaEX}
+\pgfplotstableread{data/sect3s1/sect3s1f2_Erro_F_P_Medio.txt}{\tblanovaEF}
+
+
+A Segunda função analisada consiste na função apresentada na seção \ref{sec:secfun}.
+
+A função objetivo apresentada na equação (\ref{eq:secfuntst}) possui duas variáveis de decisão. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a 400 e os limites das variáveis de decisão $[\ -10 , 10 ]\ $. No intuito de obter uma função quadrática, o parâmetro $a$ é igual a zero, resultando em:
+
+\begin{equation*} 
+    f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1
+\end{equation*}
+
+Na execução dos algoritmos que implementam os métodos Quase-Newton deverão ser considerados dois pontos iniciais definidos aleatoriamente pelo aluno. Em um desses dois pontos iniciais será usada a técnica da seção áurea da avaliação direta da função e, no outro, por meio das aproximações quadráticas para a função a cada iteração. 
+
+\begin{minipage}{\linewidth}
+    \centering
+    $x_0=[x_1,x_2]\Longrightarrow$  Avaliação Direta de $f(x)$
+    \label{tab:tble} 
+    \writetable{\tble}
+    \bigskip
+    \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{1}}$}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+    \centering
+    $x_0=[x_1,x_2]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+    \label{tab:tblf} 
+    \writetable{\tblf}
+    \bigskip
+    \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{2}}$}
+\end{minipage}  
+   
+\subsubsection{Análise Anova}
+
+    \begin{minipage}[h!]{\linewidth}
+        \centering
+        \hrule
+        \vspace{2mm}
+        {Tabela Anova de 2 Fatores com blocos Aleatorizados}
+        \vspace{2mm}
+        \noindent
+        \hrule 
+        \vspace{2mm}
+        Tempo de Processamento Médio\\
+        \label{tab:tblDa} 
+        \writeanova{\tblanovaT}\par
+        \bigskip
+        \centering
+        Número de Iterações\\
+        \label{tab:tblDb} 
+        \writeanova{\tblanovaNI}\par
+        \bigskip
+        \centering
+        Número de Avaliações de $f(x)$\\
+        \label{tab:tblDc} 
+        \writeanova{\tblanovaNE}\par
+        \bigskip
+        \centering
+        {Erro de $X_{sol}(\%)$}\\
+        \label{tab:tblDb} 
+        \writeanova{\tblanovaEX}\par
+        \bigskip
+        \centering
+        {Erro de $F(X_{sol})(\%)$}\\
+        \label{tab:tblDb} 
+        \writeanova{\tblanovaEF}\par
+        \vspace{2mm}
+        \hrule
+        \vspace{2mm}
+        \captionof{table}{Análise de variância dos Métodos Quase-Newton e da técnica da seção áurea para a segunda função analisada do primeiro experimento}
+    \end{minipage}
+
+    Para funções quadráticas, os métodos Quase-Newton:
+    \begin{itemize}
+        \item {Tempo (s):} O teste F da tabela anova indica que, tanto o método de cálculo da Seção Áurea quanto o método de otimização, interferem significativamente para a variação dos tempos médios de execução. Sendo a influência do método de cálculo da Seção Áurea é mais significativa. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes menor. Enquanto isso, o método otimização interfere com uma variância no tempo de execução significativamente menor, quase desprezível se comparada a variação causada pelo método de cálculo da Seção Áurea. 
+        \item {Iterações:} O teste F da tabela anova considera que nenhum dos fatores é capaz de causar alteração significativa do número de iterações do algoritmo, devido a esta variável ter valor constante e igual a 6 para todos os blocos executados.
+        \item {Avaliações de $F(x)$:} O teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para a variação do Número de avaliações de $F(x)$. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 50 vezes menor. 
+        \item {Erro $X_{sol}$ (\%):} O teste F da tabela anova indica que o Método de otimização interfere significativamente para a variação do Erro $X_{sol}$ (\%). Pela observação dos dados pode-se constatar que a combinação entre o uso do médoto de Otimização DFP provê o menor valor para o Erro $X_{sol}$ com uma redução da ordem de 10 vezes o valor das demais combinações.
+        \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zeram o erro da Função objetivo calculado no ponto da solução para todas variações de todos os fatores. O teste F da tabela anova considera que nenhum dos fatores é capaz de causar alteração significativa do Erro $F(x_{sol})$ (\%), devido a esta variável ter valor constante e igual a 0 para todos os blocos executados.
+    \end{itemize}   

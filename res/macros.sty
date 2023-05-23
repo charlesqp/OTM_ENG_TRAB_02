@@ -25,11 +25,11 @@
     \pgfplotstabletypeset
     [
         columns/Metodos/.style={string type, column name={Método}},
-        columns/TEnd_Medio/.style={column name={Tempo (s)} ,sci,sci zerofill,sci sep align,precision=2,sci superscript},
+        columns/TEnd_Medio/.style={column name={Tempo (s)}},
         columns/N_Iter_Medio/.style={column name={Iterações}},
         columns/N_Evals_F_Medio/.style={column name={Avaliações de F(x)}},
-        columns/Erro_Xsol_P_Medio/.style={column name={Erro $X_{sol}$ (\%)},sci,sci zerofill,sci sep align,precision=2,sci superscript},
-        columns/Erro_F_P_Medio/.style={column name={Erro $F(x_{sol})$ (\%)},sci,sci zerofill,sci sep align,precision=2,sci superscript},        
+        columns/Erro_Xsol_P_Medio/.style={column name={Erro $X_{sol}$ (\%)}},
+        columns/Erro_F_P_Medio/.style={column name={Erro $F(x_{sol})$ (\%)}},        
     ]{#1}  
  }
 

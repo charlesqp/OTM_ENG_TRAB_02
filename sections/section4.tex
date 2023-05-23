@@ -1,1 +1,167 @@
 % Conclusão
+
+\begin{itemize}
+    \item Experimento 1
+    \begin{itemize}
+        \item Primeira Função: Forma quadrática pura.
+        \begin{itemize}
+        \item {Tempo (s):} O método de cálculo da Seção Áurea interfere significativamente para a variação dos tempos médios de execução. Aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes menor.
+        \item {Iterações:} Nenhum dos fatores é capaz de causar alteração significativa do número de iterações do algoritmo. 
+        \item {Avaliações de $F(x)$:} O método de cálculo da Seção Áurea interfere significativamente para a variação do Número de avaliações de $F(x)$. Aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 40 vezes menor.
+        \item {Erro $X_{sol}$ (\%):} O erro é muito pequeno para todas as todas as variações, $\leq 10^{-9}$.
+        \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zeram o erro da Função objetivo calculado no ponto da solução para todas variações de todos os fatores. 
+    \end{itemize}
+        \item Segunda Função: Forma quadrática com iteração entre os termos.
+        \begin{itemize}
+            \item {Tempo (s):} Ambos, o método de cálculo da Seção Áurea e o método de otimização, interferem significativamente para a variação dos tempos médios de execução. Sendo que a influência do método de cálculo da Seção Áurea o fator mais significativo. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 10 vezes menor. Enquanto isso, o método otimização interfere com uma variância no tempo de execução significativamente menor, quase desprezível se comparada a variação causada pelo método de cálculo da Seção Áurea. 
+            \item {Iterações:} Nenhum dos fatores é capaz de causar alteração significativa do número de iterações do algoritmo.
+            \item {Avaliações de $F(x)$:} O método de cálculo da Seção Áurea interfere significativamente para a variação do Número de avaliações de $F(x)$. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 50 vezes menor. 
+            \item {Erro $X_{sol}$ (\%):} O Método de otimização interfere significativamente para a variação do Erro $X_{sol}$ (\%). O médoto de Otimização DFP provê o menor valor para o Erro $X_{sol}$ com uma redução da ordem de 10 vezes o valor das demais combinações.
+            \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zera o erro da Função objetivo calculado no ponto da solução para todas variações de todos os fatores. 
+        \end{itemize}   
+        \item Terceira Função: Quadrática com iteração e termo cúbico
+        \begin{itemize}
+        \item {Tempo (s):} {Tempo (s):} Ambos, o método de cálculo da Seção Áurea e o método de otimização interferem significativamente para a variação dos tempos médios de execução. Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. As aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 100 vezes maior. O método otimização interfere com uma variância no tempo de execução significativamente menor, demonstrando que o método de otimização de Huang obtem um tempo de execução que é a metade dos tempos dos outros métodos em para qualquer um dos métodos de cálculo da seção áurea.
+        \item {Iterações:}  Ambos, o método de cálculo da Seção Áurea e o método de otimização, interferem significativamente para a variação do número de iterações do algoritmo de otimização. Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. As aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 5 vezes maior, onde a combinação crítica com o pior resultado foi empregar o método de otimização de Huang com aproximações quadráticas para o cálculo de $f(X)$, com 399 iterações. Por outro lado, o melhor resultado para o número de iterações é empregar o método de Huang com avaliação direta da função $f(X)$ para o cálculo da seção áurea, com 11 iterações.
+        \item {Avaliações de $F(x)$:} Ambos, o método de cálculo da Seção Áurea e o método de otimização interferem significativamente para a variação do número de Avaliações de $F(x)$. Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. As aproximações quadráticas para $F(s)$ apresentam um número de Avaliações de $F(x)$ que é, em média, 180 vezes maior do que quando comparado a avaliação direta de $F(s)$ no cálculo da seção áurea. Assim como aconteceu com o número de iterações. O pior resultado foi a combinação entre o método de otimização de Huang com aproximações quadráticas para $F(s)$, com 17701 avaliações de $F(x)$, enquanto que a melhor combinação foi o método de otimização de Huang com avaliação direta de $F(s)$.        
+        \item {Erro $X_{sol}$ (\%):} Ambos, o método de cálculo da Seção Áurea e o método de otimização, interferem significativamente para a variação do Erro $X_{sol}$ (\%). Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. As aproximações quadráticas para $F(s)$ apresentam um Erro $X_{sol}$ (\%) que é, em média, $10^(10)$ vezes maior do que quando se empregam avaliações diretas de $F(x)$ para o cálculo da seção áurea. O pior resultado foi a combinação entre o método de otimização de Huang com aproximações quadráticas para $F(s)$, com Erro $X_{sol}$ de 964.19 (\%), enquanto que a melhor combinação foi o método de otimização de DFP com avaliação direta de $F(s)$ com Erro $X_{sol}$ de $2.73*10^{-7}$ (\%).  
+        \item {Erro $F(x_{sol})$ (\%):} Ambos, o método de cálculo da Seção Áurea e o método de otimização, interferem significativamente para a variação do Erro $F(x_{sol})$ (\%). Sendo que a influência do método de cálculo da Seção Áurea é mais significativa. As aproximações Quadráticas para $F(s)$ apresentam um Erro $F(x_{sol})$ (\%) diferente de zero, em média da ordem de $10*{-10}$, sendo o pior caso a quando combinados com o método de Huang. Enquanto isso, a avaliação direta da função $F(x)$ para o cálculo da seção áurea sempre zera o Erro $F(x_{sol})$ (\%) para qualquer método de otimização empregado.
+    \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c 
+>{\columncolor[HTML]{FFFFFF}}c }
+\cellcolor[HTML]{FFFFFF} &
+  \cellcolor[HTML]{FFFFFF} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Tempo (s)} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Iterações} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Avaliações de F(x)} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Erro $X_{sol}$ (\%)} &
+  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}Erro $F(x_{sol})$ (\%)} \\ \cline{3-12} 
+\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Experimento} &
+  \multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Variação} &
+  Melhor &
+  Pior &
+  Melhor &
+  Pior &
+  Melhor &
+  Pior &
+  Melhor &
+  Pior &
+  Melhor &
+  Pior \\ \hline
+\cellcolor[HTML]{FFFFFF} &
+  1º Função &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AD $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AD $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AD $F(x)$\end{tabular} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente, \\ sempre muito pequeno \\ $\leq 10^{-9}$\end{tabular}} &
+  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}Indiferente, sempre zero.} \\
+\cellcolor[HTML]{FFFFFF} &
+  2º Função &
+  \begin{tabular}[c]{@{}c@{}}BFGS\\ AQ $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP\\ AD $F(x)$\end{tabular} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Indiferente, Constante} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferete\\ AD $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP\\ Indiferente\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente,\\ sempre muito pequeno\\ $\leq 10^{-7}$\end{tabular} &
+  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}Indiferente, sempre zero.} \\
+\multirow{-3}{*}{\cellcolor[HTML]{FFFFFF}1º} &
+  3º Função &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AQ $F(x)$\end{tabular} \\ \hline
+\cellcolor[HTML]{FFFFFF} &
+  \begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=-0.0263$\end{tabular} &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   \\
+\cellcolor[HTML]{FFFFFF} &
+  \begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=+0.0263$\end{tabular} &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   \\
+\multirow{-3}{*}{\cellcolor[HTML]{FFFFFF}2º} &
+  \begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=0$\end{tabular} &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   \\ \hline
+3º &
+  4° Função &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   \\
+ &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+   &
+  
+\end{tabular}%
+}
+\end{table}
