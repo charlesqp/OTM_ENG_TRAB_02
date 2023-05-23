@@ -1,0 +1,89 @@
+% Experimentos e Resultados
+
+\pgfplotstableread{data/sect3s1/sec3s1tbl8.txt}{\tblg}
+\pgfplotstableread{data/sect3s1/sec3s1tbl9.txt}{\tblh}
+
+\pgfplotstableread{data/sect3s1/sect3s1f3_TEnd_Medio.txt}{\tblanovaT}
+\pgfplotstableread{data/sect3s1/sect3s1f3_N_Iter_Medio.txt}{\tblanovaNI}
+\pgfplotstableread{data/sect3s1/sect3s1f3_N_Evals_F_Medio.txt}{\tblanovaNE}
+\pgfplotstableread{data/sect3s1/sect3s1f3_Erro_Xsol_P_Medio.txt}{\tblanovaEX}
+\pgfplotstableread{data/sect3s1/sect3s1f3_Erro_F_P_Medio.txt}{\tblanovaEF}
+
+
+A terceira função analisada consiste na função da seção \ref{sec:terfun}.
+
+A função objetivo apresentada acima possui duas variáveis de decisão. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a 400 e os limites das variáveis de decisão definem o seguinte intervalo $[\ 0 , 3 ]\ $. Nesse intervalo, embora a função $f(x)$ possua dois termos cúbicos, a mesma se comporta como uma função quadrática. Sabendo que $a=\sqrt{2}$, tem-se que:
+
+\begin{equation*} 
+    f(x) = -8*x_1*x_2+2*x_2*x_1^3+2*x_1*x_2^3
+\end{equation*}
+
+Na execução dos algoritmos que implementam os métodos Quase-Newton, na análise dessa função, serão considerados dois pontos iniciais definidos aleatoriamente pelo aluno. Em um desses dois pontos iniciais será utilizada a técnica da seção áurea feita através da avaliação direta da função e, no outro, por meio das aproximações quadráticas para a função a cada iteração.
+
+\begin{minipage}{\linewidth}
+    \centering
+    $x_0=[x_1,x_2]\Longrightarrow$  Avaliação Direta de $f(x)$
+    \label{tab:tblg} 
+    \writetable{\tblg}
+    \bigskip
+    \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{1}}$}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+    \centering
+    $x_0=[x_1,x_2]\Longrightarrow$  Aproximações Quadráticas para $f(x)$
+    \label{tab:tblh} 
+    \writetable{\tblh}
+    \bigskip
+    \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando o ponto inicial $x_{0_{2}}$}
+\end{minipage}
+
+\subsubsection{Análise Anova}
+
+    \begin{minipage}[h!]{\linewidth}
+    \centering
+    \hrule
+    \vspace{2mm}
+    {Tabela Anova de 2 Fatores com blocos Aleatorizados}
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}
+    Tempo de Processamento Médio\\
+    \label{tab:tblDa} 
+    \writeanova{\tblanovaT}\par
+    \bigskip
+    \centering
+    Número de Iterações\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaNI}\par
+    \bigskip
+    \centering
+    Número de Avaliações de $f(x)$\\
+    \label{tab:tblDc} 
+    \writeanova{\tblanovaNE}\par
+    \bigskip
+    \centering
+    {Erro de $X_{sol}(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEX}\par
+    \bigskip
+    \centering
+    {Erro de $F(X_{sol})(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEF}\par
+    \vspace{2mm}
+    \hrule
+    \vspace{2mm}
+    \captionof{table}{Análise de variância dos Métodos Quase-Newton e da técnica da seção áurea para a terceira função analisada do primeiro experimento}
+    \end{minipage}
+    
+    Para funções quadráticas, os métodos Quase-Newton:
+    \begin{itemize}
+        \item {Tempo (s):} {Tempo (s):} O teste F da tabela anova indica que, tanto o método de cálculo da Seção Áurea quanto o método de otimização, interferem significativamente para a variação dos tempos médios de execução. Sendo que a influência do método de cálculo da Seção Áurea é mais significativa. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 100 vezes maior. Enquanto isso, o método otimização interfere com uma variância no tempo de execução significativamente menor, demonstrando que o método de otimização de Huang obtem um tempo de execução que é a metade dos tempos dos outros métodos em para qualquer um dos métodos de cálculo da seção áurea.
+        \item {Iterações:}  O teste F da tabela anova indica que, tanto o método de cálculo da Seção Áurea quanto o método de otimização, interferem significativamente para a variação do número de iterações do algoritmo de otimização. Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um tempo médio de execução 5 vezes maior, onde a combinação crítica com o pior resultado foi empregar o método de otimização de Huang com aproximações quadráticas para o cálculo de $f(X)$, com 399 iterações. Por outro lado, o melhor resultado para o número de iterações é empregar o método de Huang com avaliação direta da função $f(X)$ para o cálculo da seção áurea, com 11 iterações.
+        \item {Avaliações de $F(x)$:} O teste F da tabela anova indica que, tanto o método de cálculo da Seção Áurea quanto o método de otimização, interferem significativamente para a variação do número de Avaliações de $F(x)$. Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. A observação dos resultados aponta que as aproximações quadráticas para $F(s)$ apresentam um número de Avaliações de $F(x)$ que é, em média, 180 vezes maior do que quando comparado a avaliação direta de $F(s)$ no cálculo da seção áurea. Assim como aconteceu com o número de iterações. O pior resultado foi a combinação entre o método de otimização de Huang com aproximações quadráticas para $F(s)$, com 17701 avaliações de $F(x)$, enquanto que a melhor combinação foi o método de otimização de Huang com avaliação direta de $F(s)$.        
+        \item {Erro $X_{sol}$ (\%):} O teste F da tabela anova indica que, tanto o método de cálculo da Seção Áurea quanto o método de otimização, interferem significativamente para a variação do Erro $X_{sol}$ (\%). Sendo que a influência do método de cálculo da Seção Áurea é o fator mais significativo. A observação dos resultados aponta que as aproximações quadráticas para $F(s)$ apresentam um Erro $X_{sol}$ (\%) que é, em média, $10^(10)$ vezes maior do que quando se empregam avaliações diretas de $F(x)$ para o cálculo da seção áurea. O pior resultado foi a combinação entre o método de otimização de Huang com aproximações quadráticas para $F(s)$, com Erro $X_{sol}$ de 964.19 (\%), enquanto que a melhor combinação foi o método de otimização de DFP com avaliação direta de $F(s)$ com Erro $X_{sol}$ de $2.73*10^{-7}$ (\%).  
+        \item {Erro $F(x_{sol})$ (\%):} O teste F da tabela anova indica que, tanto o método de cálculo da Seção Áurea quanto o método de otimização, interferem significativamente para a variação do Erro $F(x_{sol})$ (\%). Sendo que a influência do método de cálculo da Seção Áurea é mais significativa. A observação dos resultados aponta que as aproximações Quadráticas para $F(s)$ apresentam um Erro $F(x_{sol})$ (\%) diferente de zero, em média da ordem de $10*{-10}$, sendo o pior caso a quando combinados com o método de Huang. Enquanto isso, a avaliação direta da função $F(x)$ para o cálculo da seção áurea sempre zera o Erro $F(x_{sol})$ (\%) para qualquer método de otimização empregado.
+    \end{itemize}
+   
