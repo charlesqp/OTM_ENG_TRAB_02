@@ -1,0 +1,73 @@
+% Experimentos e Resultados
+
+\pgfplotstableread{data/sect3s2/sec3s2tbl11a.txt}{\tblk}
+\pgfplotstableread{data/sect3s2/sec3s2tbl11b.txt}{\tbll}
+
+\pgfplotstableread{data/sect3s2/sect3s2f2_TEnd_Medio.txt}{\tblanovaT}
+\pgfplotstableread{data/sect3s2/sect3s2f2_N_Iter_Medio.txt}{\tblanovaNI}
+\pgfplotstableread{data/sect3s2/sect3s2f2_N_Evals_F_Medio.txt}{\tblanovaNE}
+\pgfplotstableread{data/sect3s2/sect3s2f2_Erro_Xsol_P_Medio.txt}{\tblanovaEX}
+\pgfplotstableread{data/sect3s2/sect3s2f2_Erro_F_P_Medio.txt}{\tblanovaEF}
+
+\subsection{Segunda função analisada: $\alpha = +0.0263$}
+
+\begin{minipage}[h!]{\linewidth}
+    \centering
+    {Aproximações Quadráticas de $f(x)$}
+    \label{tab:tblk} 
+    \writetable{\tblk}\par
+    \bigskip
+    \centering
+    {Avaliação Direta de $f(x)$}
+    \label{tab:tbll} 
+    \writetable{\tbll}
+    \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 0.0263$}
+\end{minipage}
+
+\begin{minipage}[h!]{\linewidth}
+    \centering
+    \hrule
+    \vspace{2mm}
+    {Tabela Anova de 2 Fatores com blocos Aleatorizados}
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}
+    Tempo de Processamento Médio\\
+    \label{tab:tblDa} 
+    \writeanova{\tblanovaT}\par
+    \bigskip
+    \centering
+    Número de Iterações\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaNI}\par
+    \bigskip
+    \centering
+    Número de Avaliações de $f(x)$\\
+    \label{tab:tblDc} 
+    \writeanova{\tblanovaNE}\par
+    \bigskip
+    \centering
+    {Erro de $X_{sol}(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEX}\par
+    \bigskip
+    \centering
+    {Erro de $F(X_{sol})(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEF}\par
+    \vspace{2mm}
+    \hrule
+    \vspace{2mm}
+    \captionof{table}{Análise de variância dos Métodos Quase-Newton e da técnica da seção áurea para a primeira função analisada do primeiro experimento}
+\end{minipage}
+
+\subsubsection{Conclusão Parcial}
+        Para funções quadráticas, os métodos Quase-Newton:
+        \begin{itemize}
+            \item {Tempo (s):} O teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para a variação dos tempos médios de execução. A observação dos resultados aponta que a média dos tempos de execução é menor quando se empregam as aproximações Quadráticas para $F(s)$.
+            \item {Iterações:} O teste F da tabela anova indica que ambos, o método de otimização e o método de cálculo da Seção Áurea interferem significativamente para a variação dos número de iterações do algoritmo. Sendo o método de cálculo da seção áurea o fator mais significativo. A observação dos resultados aponta que o número de iterações é menor quando se empregam as aproximações Quadráticas para $F(s)$. No melhor caso, os algoritmos DFP e BFGS performam melhor para qualquer uma das escolhas do método de cálculo da seção áurea. No pior caso, os métodos de Huang e Biggs tem a pior performance quando combinados com a avaliação direta de $F(x)$
+            \item {Avaliações de $F(x)$:} O teste F da tabela anova indica que ambos, o método de otimização e o método de cálculo da Seção Áurea interferem significativamente para a variação dos número de Avaliações de $F(x)$. Sendo o método de cálculo da seção áurea o fator mais significativo. Para o melhor caso, o emprego de aproximações quadráticas de $F(x)$ obtém o menor valor para todas os métodos de otimização. Para o pior caso, a combinação do método de Huang com a avaliação direta de $F(x)$ obtém o maior valor. A relação entre o melhor e o pior é de 73 vezes.
+            \item {Erro $X_{sol}$ (\%):} O teste F da tabela anova indica que ambos, o método de otimização e o método de cálculo da Seção Áurea interferem significativamente para a variação do erro $X_{sol}$. Sendo o método de cálculo da seção áurea o fator mais significativo. Para o melhor caso, o emprego de aproximações quadráticas de $F(x)$ combinado com o método de Huang obtém o menor valor. Para o pior caso, a combinação da avaliação direta de $F(x)$ com qualquer método de otimização obtém o maior valor.
+            \item {Erro $F(x_{sol})$ (\%):} \textbf{Sempre} zeram o erro da Função objetivo calculado no ponto da solução para todas variações de todos os fatores, o valor obtido $10^{-16}$ é praticamente zero pois é da mesma ordem de valor da precisão relativa do ponto flutuante no Matlab. O teste F da tabela anova considera que nenhum dos fatores é capaz de causar alteração significativa do Erro $F(x_{sol})$ (\%), devido a esta variável ter valor constante e igual a 0 para todos os blocos executados.
+        \end{itemize}

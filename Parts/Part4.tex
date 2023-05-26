@@ -38,19 +38,8 @@
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 \begin{table}[]
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{
->{\columncolor[HTML]{FFFFFF}}c |
->{\columncolor[HTML]{FFFFFF}}c |
->{\columncolor[HTML]{FFFFFF}}c 
->{\columncolor[HTML]{FFFFFF}}c |
->{\columncolor[HTML]{FFFFFF}}c 
->{\columncolor[HTML]{FFFFFF}}c |
->{\columncolor[HTML]{FFFFFF}}c 
->{\columncolor[HTML]{FFFFFF}}c |
->{\columncolor[HTML]{FFFFFF}}c 
->{\columncolor[HTML]{FFFFFF}}c |
->{\columncolor[HTML]{FFFFFF}}c 
->{\columncolor[HTML]{FFFFFF}}c }
+\begin{tabular}{c|c|cc|cc|cc|cc|cc}
+\rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{FFFFFF} &
   \cellcolor[HTML]{FFFFFF} &
   \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Tempo (s)} &
@@ -58,6 +47,7 @@
   \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Avaliações de F(x)} &
   \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Erro $X_{sol}$ (\%)} &
   \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}Erro $F(x_{sol})$ (\%)} \\ \cline{3-12} 
+\rowcolor[HTML]{FFFFFF} 
 \multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Experimento} &
   \multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Variação} &
   Melhor &
@@ -70,6 +60,7 @@
   Pior &
   Melhor &
   Pior \\ \hline
+\rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{FFFFFF} &
   1º Função &
   \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
@@ -78,18 +69,20 @@
   \begin{tabular}[c]{@{}c@{}}Indiferente\\ AD $F(x)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Indiferente\\ AD $F(x)$\end{tabular} &
-  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente, \\ sempre muito pequeno \\ $\leq 10^{-9}$\end{tabular}} &
-  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}Indiferente, sempre zero.} \\
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente, \\ Sempre $\leq 10^{-9}$\end{tabular}} &
+  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente,\\ Sempre zero.\end{tabular}} \\
+\rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{FFFFFF} &
   2º Função &
   \begin{tabular}[c]{@{}c@{}}BFGS\\ AQ $F(s)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}DFP\\ AD $F(x)$\end{tabular} &
-  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}Indiferente, Constante} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente\\ Sempre Constante\end{tabular}} &
   \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(s)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Indiferete\\ AD $F(x)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}DFP\\ Indiferente\end{tabular} &
-  \begin{tabular}[c]{@{}c@{}}Indiferente,\\ sempre muito pequeno\\ $\leq 10^{-7}$\end{tabular} &
-  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}Indiferente, sempre zero.} \\
+  \begin{tabular}[c]{@{}c@{}}Indiferente,\\ $\leq 10^{-7}$\end{tabular} &
+  \multicolumn{2}{c}{\cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente, \\ Sempre zero.\end{tabular}} \\
+\rowcolor[HTML]{FFFFFF} 
 \multirow{-3}{*}{\cellcolor[HTML]{FFFFFF}1º} &
   3º Função &
   \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
@@ -102,30 +95,33 @@
   \begin{tabular}[c]{@{}c@{}}Huang\\ AQ $F(x)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
   \begin{tabular}[c]{@{}c@{}}Huang\\ AQ $F(x)$\end{tabular} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{FFFFFF} &
-  \begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=-0.0263$\end{tabular} &
-   &
-   &
-   &
-   &
-   &
-   &
-   &
-   &
-   &
-   \\
+  \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=-0.0263$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}BFGS\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP ou BFGS\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang ou Biggs\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP ou BFGS\\ AQ $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP ou BFGS\\ AD $F(s)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}DFP ou BFGS\\ AD $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang ou Biggs\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente,\\ $\leq 10^{-15}$\end{tabular} \\
+\rowcolor[HTML]{FFFFFF} 
 \cellcolor[HTML]{FFFFFF} &
   \begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=+0.0263$\end{tabular} &
-   &
-   &
-   &
-   &
-   &
-   &
+  \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(x)$\end{tabular} &
+  \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente\\ AD $F(x)$\end{tabular} &
+  \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(x)$\end{tabular} &
+  \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}c@{}}Huang ou Biggs\\ AD $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Indiferente\\ AQ $F(x)$\end{tabular} &
+  \begin{tabular}[c]{@{}c@{}}Huang\\ AD $F(x)$\end{tabular} &
    &
    &
    &
    \\
+\rowcolor[HTML]{FFFFFF} 
 \multirow{-3}{*}{\cellcolor[HTML]{FFFFFF}2º} &
   \begin{tabular}[c]{@{}c@{}}2º Função\\ $\alpha=0$\end{tabular} &
    &
@@ -138,6 +134,7 @@
    &
    &
    \\ \hline
+\rowcolor[HTML]{FFFFFF} 
 3º &
   4° Função &
    &
@@ -150,6 +147,7 @@
    &
    &
    \\
+\rowcolor[HTML]{FFFFFF} 
  &
    &
    &
