@@ -1,0 +1,73 @@
+% Experimentos e Resultados
+
+\pgfplotstableread{data/sect3s2/sec3s2tbl12a.txt}{\tblm}
+\pgfplotstableread{data/sect3s2/sec3s2tbl12b.txt}{\tbln}
+
+\pgfplotstableread{data/sect3s2/sect3s2f3_TEnd_Medio.txt}{\tblanovaT}
+\pgfplotstableread{data/sect3s2/sect3s2f3_N_Iter_Medio.txt}{\tblanovaNI}
+\pgfplotstableread{data/sect3s2/sect3s2f3_N_Evals_F_Medio.txt}{\tblanovaNE}
+\pgfplotstableread{data/sect3s2/sect3s2f3_Erro_Xsol_P_Medio.txt}{\tblanovaEX}
+\pgfplotstableread{data/sect3s2/sect3s2f3_Erro_F_P_Medio.txt}{\tblanovaEF}
+
+\subsection{Terceira função analisada: $\alpha = 0$}
+
+\begin{minipage}[h!]{\linewidth}
+    \centering
+    {Aproximações Quadráticas de $f(x)$}
+    \label{tab:tblm} 
+    \writetable{\tblm}\par
+    \bigskip
+    \centering
+    {Avaliação Direta de $f(x)$}
+    \label{tab:tbln} 
+    \writetable{\tbln}     
+    \captionof{table}{Resultados relacionados ao esforço computacional e precisão considerando $\alpha = 1.0$}
+\end{minipage}
+
+\begin{minipage}[h!]{\linewidth}
+    \centering
+    \hrule
+    \vspace{2mm}
+    {Tabela Anova de 2 Fatores com blocos Aleatorizados}
+    \vspace{2mm}
+    \noindent
+    \hrule 
+    \vspace{2mm}
+    Tempo de Processamento Médio\\
+    \label{tab:tblDa} 
+    \writeanova{\tblanovaT}\par
+    \bigskip
+    \centering
+    Número de Iterações\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaNI}\par
+    \bigskip
+    \centering
+    Número de Avaliações de $f(x)$\\
+    \label{tab:tblDc} 
+    \writeanova{\tblanovaNE}\par
+    \bigskip
+    \centering
+    {Erro de $X_{sol}(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEX}\par
+    \bigskip
+    \centering
+    {Erro de $F(X_{sol})(\%)$}\\
+    \label{tab:tblDb} 
+    \writeanova{\tblanovaEF}\par
+    \vspace{2mm}
+    \hrule
+    \vspace{2mm}
+    \captionof{table}{Análise de variância dos Métodos Quase-Newton e da técnica da seção áurea para a primeira função analisada do primeiro experimento}
+\end{minipage}
+
+\subsubsection{Conclusão Parcial}
+        Para funções quadráticas, os métodos Quase-Newton:
+        \begin{itemize}
+        \item {Tempo (s):}  O teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para a variação dos tempos médios de execução. A observação dos resultados aponta que o número de iterações é menor quando se combina a avaliação direta de $F(s)$ com o método BFGS. No pior caso, o método de Huang tem a pior performance quando combinado com a Aproximação Quadrática de $F(x)$
+        \item {Iterações:}   O teste F da tabela anova indica que o método de cálculo da Seção Áurea interfere significativamente para a variação do número de iterações. A observação dos resultados aponta que o número de iterações é menor quando se combina a avaliação direta de $F(s)$ com o método BFGS. No pior caso, os métodos de Huang ou Biggs tem a pior performance quando combinado com a Aproximação Quadrática de $F(x)$
+        \item {Avaliações de $F(x)$:} O teste F da tabela anova indica que ambos, o método de cálculo da Seção Áurea e o método de otimização interferem significativamente para a variação dos número de Avaliações de $F(x)$. A observação dos resultados aponta que o número de avaliações de $F(x)$ é menor quando se combina a Aproximação Quadrática de $F(x)$ com o método DFP. No pior caso, o método DFP tem a pior performance quando combinado com a  avaliação direta de $F(s)$.
+        \item {Erro $X_{sol}$ (\%):} O teste F da tabela anova indica que ambos, o método de cálculo da Seção Áurea e o método de otimização interferem significativamente para a variação do Erro $X_{sol}$ (\%). A observação dos resultados aponta que o Erro $X_{sol}$ (\%) é menor quando se combina a Avaliação Direta de $F(x)$ com o método DFP. No pior caso, o método de Huang tem a pior performance quando combinado com a Aproximação Quadrática $F(s)$.
+        \item {Erro $F(x_{sol})$ (\%):}  O teste F da tabela anova indica que ambos, o método de cálculo da Seção Áurea e o método de otimização interferem significativamente para a variação do Erro $F(x_{sol})$ (\%). A observação dos resultados aponta que o Erro $X_{sol}$ (\%) é menor para a combinação da Avaliação Direta de $F(x)$ com qualquer método de otimização. No pior caso, o método de Huang tem a pior performance quando combinado com a Aproximação Quadrática $F(s)$.
+        \end{itemize}

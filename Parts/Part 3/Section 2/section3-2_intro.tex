@@ -1,0 +1,18 @@
+% Experimentos e Resultados
+
+A função analisada consiste na função da seção \ref{sec:secfun}.
+
+A função objetivo apresentada possui duas variáveis de decisão. Nesse caso, o número máximo de iterações, calculado por meio da equação \ref{eq:maxevals}, é igual a 400 e os limites das variáveis de decisão definem o seguinte intervalo $[\ -10 , 10 ]\ $. No intuito de obter uma função não quadrática perfeita, foram considerados três valores do parâmetro $a$, os quais são apresentados abaixo seguido da respectiva função objetivo:
+
+\begin{equation*}   
+    \begin{aligned}
+        \alpha &=-0.0263 \rightarrow &f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 -0.0263*(x_1^3+x_2^3)\\
+        \alpha &=+0.0263 \rightarrow &f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 + 0.0263*(x_1^3+x_2^3)\\
+        \alpha &=1 \rightarrow &f(x) = 12*x_1^2 - 4*x_2^2 - 12*x_1x_2 + 2*x_1 + (x_1^3+x_2^3)\\   
+    \end{aligned}
+\end{equation*}
+
+Para cada valor do parâmetro $a$ deverão ser considerados dois pontos iniciais, dentre os quais um será executado considerando a técnica da seção áurea feita através da avaliação direta da função e o outro considerando as aproximações quadráticas para a função a cada iteração.
+
+Vale ressaltar que o parâmetro a pondera o termo cúbico da função objetivo $f(x)$ do problema de otimização estudado, quanto maior o valor absoluto desse parâmetro, maior é a influência do termo não quadrático na função. Para esta função os valores assumidos para parâmetro  a que não comprometem a convexidade da função   no intervalo $[\ -10 , 10 ]\ $ estão no intervalo: \\ {\centering $-0.0263 \leq a \leq 0.0263$} \\
+\vspace{2mm}
